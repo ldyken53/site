@@ -1,0 +1,47 @@
+[
+	{
+		"title": "GraphWaGu: GPU Powered Large Scale Graph Layout Computation and Rendering for the Web",
+		"authors": "Landon Dyken, Pravin Poudel, Will Usher, Steve Petruzza, Jake Y. Chen, Sidharth Kumar",
+		"venue": "Eurographics Symposium on Parallel Graphics and Visualization",
+		"paper_pdf": "https://drive.google.com/file/d/16PWup93vFLCWqQexop2IfRyMeQGniLqa/view?usp=sharing",
+		"thumb": "/img/graphwagu.png",
+		"year": 2022,
+		"exact_date": "2022-05-09 00:00:00 -0600",
+		"short_title": "graphwagu",
+        "selected": true,
+        "presentation_video": "https://www.youtube.com/embed/aEJRqQm-8Ew?start=1748",
+		"bibtex": "@inproceedings{dyken_graphwagu_2022,\nbooktitle = {Eurographics Symposium on Parallel Graphics and Visualization},\neditor = {Bujack, R. and Tierny, J. and Sadlo, F.},\ntitle = {{GraphWaGu:} {GPU} {Powered} {Large} {Scale} {Graph} {Layout} {Computation} and {Rendering} for the {Web}},\nauthor = {Dyken, Landon and Poudel, Pravin and Usher, Will and Petruzza, Steve and Chen, Jake Y. and Kumar, Sidharth},\nyear = {2022},\n}",
+		"abstract": "Large scale graphs are used to encode data from a variety of application domains such as social networks, the web, biological networks, road maps, and finance. Computing enriching layouts and interactive rendering play an important role in many of these applications. However, producing an efficient and interactive visualization of large graphs remains a major challenge, particularly in the web-browser. Existing state of the art web-based visualization systems such as D3.js, Stardust, and NetV.js struggle to achieve interactive layout and visualization for large scale graphs. In this work, we leverage the latest WebGPU technology to develop GraphWaGu, the first WebGPU-based graph visualization system. WebGPU is a new graphics API that brings the full capabilities of modern GPUs to the web browser. Leveraging the computational capabilities of the GPU using this technology enables GraphWaGu to scale to larger graphs than existing technologies. GraphWaGu embodies both fast parallel rendering and layout creation using modified Frutcherman-Reingold and Barnes-Hut algorithms implemented in WebGPU compute shaders. Experimental results demonstrate that our solution achieves the best performance, scalability, and layout quality when compared to current state of the art web-based graph visualization libraries. All of our source code for the project is available at https://github.com/harp-lab/GraphWaGu.",
+		"downloads": [
+			{
+				"title": "Code",
+				"list": [
+					{
+						"title": "GraphWaGu",
+						"link": "https://github.com/harp-lab/GraphWaGu",
+						"icon": "fab fa-github"
+					},
+                    {
+                        "title": "Live demo!",
+                        "link": "https://harp-lab.github.io/GraphWaGu/",
+                        "icon": "fas fa-flask"
+                    }
+				]
+			}
+		]
+	},
+    {
+		"title": "Accelerating Datalog Applications with cuDF",
+		"authors": "Ahmedur Rahman Shovon, Landon Dyken, Oded Green, Thomas Gilray, Sidharth Kumar",
+		"venue": "12th Workshop on Irregular Applications: Architectures and Algorithms",
+		"paper_pdf": "https://par.nsf.gov/servlets/purl/10387678",
+		"thumb": "/img/cudf.png",
+		"year": 2022,
+		"exact_date": "2022-11-18 00:00:00 -0600",
+		"short_title": "cudf",
+        "selected": true,
+		"bibtex": "@article{osti_10387678, title = {Accelerating Datalog applications with cuDF.}, url = {https://par.nsf.gov/biblio/10387678}, journal = {12th Workshop on Irregular Applications: Architectures and Algorithms}, author = {Shovon, Ahmedur Rahman and Dyken, Landon Richard and Green, Oded and Gilray, Thomas and Kumar, Sidharth} }",
+		"abstract": "Datalog, a bottom-up declarative logic programming language, has a wide variety of uses for deduction, modeling, and data analysis across application domains. Datalog can be efficiently implemented using relational algebra primitives such as join, projection and union. While there exist several multi-threaded and multi-core implementations of Datalog targeting CPU-based systems, our work makes an inroad towards developing a Datalog implementation for GPUs. We demonstrate the feasibility of a high-performance relational algebra backend for a subset of Datalog applications that can effectively leverage the parallelism of GPUs using cuDF. cuDF is a library from the Rapids suite that uses the NVIDIA CUDA programming model for GPU parallelism. It provides similar functionalities to Pandas, a popular data analysis engine. In this paper, we analyze and evaluate the performance of cuDF versus Pandas for two graph-mining problems implemented in Datalog, (1) triangle counting and (2)  transitive-closure computation.",
+        "downloads": []
+	}
+]
