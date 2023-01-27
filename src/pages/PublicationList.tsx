@@ -32,7 +32,7 @@ const Publication: React.FC<Props> = ({ pub, i }) => {
                 <br />
                 {pub.authors}. <i>{pub.venue}</i>, {pub.year}.
                 <br/>
-                <a className="mr-2 color2" href={`/publications/${i}`}>
+                <a className="mr-2 color2" href={`/#/publications/${i}`}>
                     <i className="far fa-file-alt"></i> Project Page</a>
                 <a className="mr-2 color2" href={pub.paper_pdf}><i className="far fa-file-pdf"></i> PDF</a>
                 {pub.bibtex && (
