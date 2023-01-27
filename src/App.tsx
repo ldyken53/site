@@ -29,8 +29,8 @@ function App() {
             </Navbar>
             <Routes>
                 <Route path='/' element={<Home />}/>
-                <Route path='/publications/:pubId' element={<div><Publication /></div>} />
-                <Route path='/publications' element={<div className="page"><PublicationList /></div>} />
+                <Route path={`${process.env.PUBLIC_URL}/publications/:pubId`} element={<div><Publication /></div>} />
+                <Route path={`${process.env.PUBLIC_URL}/publications`} element={<div className="page"><PublicationList /></div>} />
                 {/* <Route path='/projects' element={<Paper page={publications[0]}></Paper>}/> */}
             </Routes>
         </header>
