@@ -5,8 +5,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Paper from './pages/Publication';
 import PublicationList from './pages/PublicationList';
+import Fun from './pages/Fun'
 import Home from './pages/Home';
-import { HashRouter as Router, Routes, Route, useParams } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useParams, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 function Publication() {
     let id = useParams()!['pubId'];
@@ -14,15 +16,16 @@ function Publication() {
 }
 
 function App() {
+  const navigate = useNavigate();
   return (
-    <Router><div className="App">
+    <div className="App">
         <header className="App-header">
             <Navbar fixed="top" expand="lg">
             <Container>
                 <Navbar.Brand style={{fontSize: '2rem'}} className="color" href="/">Landon Dyken</Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link style={{fontSize: '1.25rem'}} href="/#/publications">Publications</Nav.Link>
-                    <Nav.Link style={{fontSize: '1.25rem'}} href="/#/projects">Projects</Nav.Link>
+                    <Link className="nav-link" style={{fontSize: '1.25rem'}} to="/publications">Publications</Link>
+                    <Link className="nav-link" style={{fontSize: '1.25rem'}} to="/projects">Projects</Link>
                     <Nav.Link style={{fontSize: '1.25rem'}} href="https://docs.google.com/document/d/1IM8minmPcwixm0tvnp9xvlVqKlPKWllHsAJ4NTmMGbY/edit?usp=sharing">Resume</Nav.Link>
                 </Nav>
             </Container>
@@ -31,10 +34,11 @@ function App() {
                 <Route path='/' element={<Home />}/>
                 <Route path={`/publications/:pubId`} element={<div><Publication /></div>} />
                 <Route path={`/publications`} element={<div className="page"><PublicationList /></div>} />
+                <Route path={`/camille`} element={<div className="page"><Fun /></div>} />
                 {/* <Route path='/projects' element={<Paper page={publications[0]}></Paper>}/> */}
             </Routes>
         </header>
-    </div></Router>
+    </div>
   );
 }
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import publications from '../data/publications.json';
 import Button from 'react-bootstrap/Button';
-
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 interface Props {
     pub: {
@@ -20,6 +21,7 @@ interface Props {
 }
 
 const Publication: React.FC<Props> = ({ pub, i }) => {
+    const navigate = useNavigate();
     return (
         <div className="row col-12 mb-3 float-md-left">
             <div className="float-md-left col-12 col-md-2">
@@ -32,8 +34,8 @@ const Publication: React.FC<Props> = ({ pub, i }) => {
                 <br />
                 {pub.authors}. <i>{pub.venue}</i>, {pub.year}.
                 <br/>
-                <a className="mr-2 color2" href={`/#/publications/${i}`}>
-                    <i className="far fa-file-alt"></i> Project Page</a>
+                <Link className="mr-2 color2"  to={`/publications/${i}`}>
+                    <i className="far fa-file-alt"></i> Project Page</Link>
                 <a className="mr-2 color2" href={pub.paper_pdf}><i className="far fa-file-pdf"></i> PDF</a>
                 {pub.bibtex && (
                     <Button variant="outline-secondary" className="bib mr-2" onClick={
