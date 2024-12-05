@@ -26,7 +26,7 @@ function App() {
                 <Nav className="me-auto">
                     <Link className="nav-link" style={{fontSize: '1.25rem'}} to="/publications">Publications</Link>
                     <Link className="nav-link" style={{fontSize: '1.25rem'}} to="/projects">Projects</Link>
-                    <Nav.Link style={{fontSize: '1.25rem'}} href="https://docs.google.com/document/d/1IM8minmPcwixm0tvnp9xvlVqKlPKWllHsAJ4NTmMGbY/edit?usp=sharing">Resume</Nav.Link>
+                    <Nav.Link style={{fontSize: '1.25rem'}} href="https://drive.google.com/file/d/1Jrk69NGqaLh3WmHiGV2YlE-Cmr0Tlptc/view?usp=sharing">CV</Nav.Link>
                 </Nav>
             </Container>
             </Navbar>
