@@ -18,7 +18,7 @@ const Home: React.FC = () => {
                     <span className="tab"></span>
                     <a className="color2" href="https://github.com/ldyken53">Github</a>
                     <span className="tab"></span>
-                    <a className="color2" href="mailto:ldyken53@uab.edu">Email</a>
+                    <a className="color2" href="mailto:ldyke@uic.edu">Email</a>
                     <span className="tab"></span>
                     <a className="color2" href="https://scholar.google.com/citations?user=LVW51pcnYFYC&hl=en&oi=ao">Google Scholar</a>
                 </div>
