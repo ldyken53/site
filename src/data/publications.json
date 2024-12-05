@@ -29,6 +29,29 @@
 		]	
 	},
 	{
+		"title": "Bruck Algorithm Performance Analysis for Multi-GPU All-to-All Communication",
+		"authors": "Andres Sewell, Ke Fan, Ahmedur Rahman Shovon, Landon Dyken, Sidharth Kumar, Steve Petruzza",
+		"venue": "Proceedings of the International Conference on High Performance Computing in Asia-Pacific Region (HPCAsia '24)",
+		"paper_pdf": "https://dl.acm.org/doi/pdf/10.1145/3635035.3635047",
+		"thumb": "/img/bruck.png",
+		"year": 2024,
+		"exact_date": "2024-01-19 00:00:00 -0600",
+		"short_title": "bruck-gpu",
+		"bibtex": "@inproceedings{10.1145/3635035.3635047,\nauthor = {Sewell, Andres and Fan, Ke and Shovon, Ahmedur Rahman and Dyken, Landon and Kumar, Sidharth and Petruzza, Steve},\ntitle = {Bruck Algorithm Performance Analysis for Multi-GPU All-to-All Communication},\nyear = {2024},\nisbn = {9798400708893},\npublisher = {Association for Computing Machinery},\naddress = {New York, NY, USA},\nurl = {https://doi.org/10.1145/3635035.3635047},\ndoi = {10.1145/3635035.3635047},\nabstract = {In high-performance computing, collective communication is critical for facilitating comprehensive data exchange involving all processes within an MPI communicator. Due to their inherently global nature, many collective operations present scalability challenges, particularly the all-to-all data shuffle with its quadratic communication pattern. Using a logarithmic communication pattern, the Bruck algorithm was designed to provide communication efficiency for all-to-all data shuffles involving short-sized messages. The Bruck algorithm has been extensively used to facilitate global data shuffles in a multi-CPU environment and is also part of the MPICH and Open MPI implementations. This work presents the first investigation of using the Bruck algorithm for all-to-all communication in multi-GPU systems using the NVIDIA Collective Communications Library (NCCL). Our experimental study demonstrates that while the Bruck algorithm exhibits superior performance for small-sized messages in a multi-CPU environment, the same advantages are not evident for multi-GPU environments. Furthermore, we describe and compare an optimized Bruck algorithm implementation in NCCL and compare it to NCCL’s default all-to-all and MPI-based implementations. Finally, we discuss the challenges and opportunities of implementing new multi-GPU collectives using NCCL’s public-facing API.},\nbooktitle = {Proceedings of the International Conference on High Performance Computing in Asia-Pacific Region},\npages = {127–133},\nnumpages = {7},\nlocation = {Nagoya, Japan},\nseries = {HPCAsia '24}\n}",
+		"downloads": [
+			{
+				"title": "Code",
+				"list": [
+					{
+						"title": "Github",
+						"link": "https://github.com/ldyken53/TVCG-progiso",
+						"icon": "fab fa-github"
+					}
+				]
+			}
+		]	
+	},
+	{
 		"title": "Speculative Progressive Raycasting for Memory Constrained Isosurface Visualization of Massive Volumes",
 		"authors": "Will Usher, Landon Dyken, Sidharth Kumar",
 		"venue": "IEEE Symposium on Large Data Analysis and Visualization (LDAV)",
@@ -40,23 +63,7 @@
 		"award": "Best Paper",
 		"bibtex": "@inproceedings{usher_speculative_2023,\nbooktitle = {13th IEEE Symposium on Large Data Analysis and Visualization},\ntitle = {{Speculative} {Progressive} {Raycasting} for {Memory} {Constrained} {Isosurface} {Visualization} of {Massive} {Volumes}},\nauthor = {Usher, Will and Dyken, Landon and Kumar, Sidharth},\nyear = {2023},\n}",
 		"abstract": "New web technologies have enabled the deployment of powerful GPU-based computational pipelines that run entirely in the web browser, opening a new frontier for accessible scientific visualization applications. However, these new capabilities do not address the memory constraints of lightweight end-user devices encountered when attempting to visualize the massive data sets produced by today’s simulations and data acquisition systems. In this paper, we propose a novel implicit isosurface rendering algorithm for interactive visualization of massive volumes within a small memory footprint. We achieve this by progressively traversing a wavefront of rays through the volume and decompressing blocks of the data on-demand to perform implicit ray-isosurface intersections. The progressively rendered surface is displayed after each pass to improve interactivity. Furthermore, to accelerate rendering and increase GPU utilization, we introduce speculative ray-block intersection into our algorithm, where additional blocks are traversed and intersected speculatively along rays as other rays terminate to exploit additional parallelism in the workload. Our entire pipeline is run in parallel on the GPU to leverage the parallel computing power that is available even on lightweight end-user devices. We compare our algorithm to the state of the art in low-overhead isosurface extraction and demonstrate that it achieves 1.7×–5.7× reductions in memory overhead and up to 8.4× reductions in data decompressed.",
-		"downloads": [
-			{
-				"title": "Code",
-				"list": [
-					{
-						"title": "Github",
-						"link": "https://github.com/Twinklebear/webgpu-prog-iso",
-						"icon": "fab fa-github"
-					},
-                    {
-                        "title": "Live demo!",
-                        "link": "https://www.willusher.io/webgpu-prog-iso/",
-                        "icon": "fas fa-flask"
-                    }
-				]
-			}
-		]	
+		"downloads": []	
 	},
 	{
 		"title": "GraphWaGu: GPU Powered Large Scale Graph Layout Computation and Rendering for the Web",
