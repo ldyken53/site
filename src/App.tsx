@@ -25,7 +25,7 @@ function App() {
                 <Navbar.Brand style={{fontSize: '2rem'}} className="color" href="/">Landon Dyken</Navbar.Brand>
                 <Nav className="me-auto">
                     <Link className="nav-link" style={{fontSize: '1.25rem'}} to="/publications">Publications</Link>
-                    <Link className="nav-link" style={{fontSize: '1.25rem'}} to="/projects">Projects</Link>
+                    {/* <Link className="nav-link" style={{fontSize: '1.25rem'}} to="/projects">Projects</Link> */}
                     <Nav.Link style={{fontSize: '1.25rem'}} href="https://drive.google.com/file/d/1Jrk69NGqaLh3WmHiGV2YlE-Cmr0Tlptc/view?usp=sharing">CV</Nav.Link>
                 </Nav>
             </Container>
