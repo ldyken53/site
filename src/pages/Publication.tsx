@@ -37,7 +37,7 @@ const Paper: React.FC<Props> = ( { id } ) => {
             <div className="contain">
             <div className="col-12 text-center">
                 {page.thumb && <img style={{maxHeight: '300px'}} alt="thumb" src={page.thumb} />}
-                <h1 className="display-4">{page.title}</h1>
+                <h2>{page.title}</h2>
                 <h4>{page.authors}</h4>
                 <h5>In <i>{page.venue}</i>, {page.year}</h5>
                 {page.award && <p><i className="fas fa-award"></i><i> {page.award}</i></p>}
@@ -52,10 +52,10 @@ const Paper: React.FC<Props> = ( { id } ) => {
             </div>
             <div className="col-12 mt-2">
                 <h2 className="border-bottom border-secondary">Abstract</h2>
-                <p>{page.abstract}</p>
+                <p style={{fontSize: "small"}}>{page.abstract}</p>
             </div>
             <div className="col-12 mt-2">
-                <h2 className="border-bottom border-secondary">Downloads</h2>
+                <h2 className="border-bottom border-secondary">Links</h2>
                 <dl>
                     <dt>Publication</dt>
                     <dd><a href={page.paper_pdf}><i className="far fa-file-pdf"></i> Paper (PDF)</a></dd>

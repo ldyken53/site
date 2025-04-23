@@ -1,5 +1,59 @@
 [
 	{
+		"title": "Enabling Fast and Accurate Crowdsourced Annotation for Elevation-Aware Flood Extent Mapping",
+		"authors": "Landon Dyken, Saugat Adhikari, Pravin Poudel, Steve Petruzza, Da Yan, Will Usher, Sidharth Kumar",
+		"venue": "IEEE 18th Pacific Visualization Conference (PacificVis)",
+		"paper_pdf": "https://drive.google.com/file/d/1b9UmVqa7Pop6HoWim6IFrlu9U_wpjKl2/view?usp=sharing",
+		"thumb": "/img/floodann.jpg",
+		"year": 2025,
+		"exact_date": "2025-04-24 00:00:00 -0600",
+		"short_title": "floodann-pacificvis2025",
+		"bibtex": "@inproceedings{dyken_flood_ann25,\nauthor={Dyken, Landon and Adhikari, Saugat and Poudel, Pravin and Petruzza, Steve and Yan, Da and Usher, Will and Kumar, Sidharth},\nbooktitle={IEEE Pacific Visualization Conference (To Appear)},\ntitle={Enabling Fast and Accurate Crowdsourced Annotation for Elevation-Aware Flood Extent Mapping},\nyear={2025},\n}",
+		"abstract": "Mapping the extent of flood events is a necessary and important aspect of disaster management. In recent years, deep learning methods have evolved as an effective tool to quickly label high-resolution imagery and provide necessary flood extent mappings. These methods, though, require large amounts of annotated training data to create models that are accurate and robust to new flooded imagery. In this work, we present FloodTrace, a web-based application that enables effective crowdsourcing of flooded region annotation for machine learning applications. To create this application, we conducted extensive interviews with domain experts to produce a set of formal requirements. Our work brings topological segmentation tools to the web and greatly improves annotation efficiency compared to the state-of-the-art. The user-friendliness of our solution allows researchers to outsource annotations to non-experts and utilize them to produce training data with equal quality to fully expert-labeled data. We conducted a user study to confirm our application’s effectiveness in which 266 graduate students annotated high-resolution aerial imagery from Hurricane Matthew in North Carolina. Experimental results show the efficiency benefits of our application for untrained users, with median annotation time less than half the state-of-the-art annotation method. In addition, using our application’s aggregation and correction framework, flood detection models trained on crowdsourced annotations were able to achieve performance equal to models trained on fully expert-labeled annotations, while requiring a fraction of the expert’s time.",
+		"downloads": [
+			{
+				"title": "Code",
+				"list": [
+					{
+						"title": "Github",
+						"link": "https://github.com/ldyken53/threejs-floodmap",
+						"icon": "fab fa-github"
+					}
+				]
+			}
+		]	
+	},
+	{
+		"title": "Accelerating Web-Based Graph Drawing with Bottom-Up GPU Quadtree Construction",
+		"authors": "Landon Dyken, Will Usher, Steve Petruzza, Stavros Sintos, Sidharth Kumar",
+		"supplemental_video": "https://www.youtube.com/embed/tfcHj7v7FU0?si=poT1ylxNl7lVbIop",
+		"venue": "IEEE 18th Pacific Visualization Conference (PacificVis)",
+		"paper_pdf": "https://sidharthkumar.io/publications/pacificVisGraphWagu.pdf",
+		"thumb": "/img/graphwagu2.png",
+		"year": 2025,
+		"exact_date": "2025-04-23 00:00:00 -0600",
+		"short_title": "graphwagu-pacificvis2025",
+		"bibtex": "@inproceedings{dyken_graph25,\nauthor={Dyken, Landon and Usher, Will and Petruzza, Steve and Sintos, Stavros and Kumar, Sidharth},\nbooktitle={IEEE Pacific Visualization Conference (To Appear)},\ntitle={Accelerating Web-Based Graph Drawing with Bottom-Up GPU Quadtree Construction},\nyear={2025},\n}",
+		"abstract": "Graph drawing, or graph layout creation, is a computationally difficult challenge in visualization that involves placing the vertices of a graph into a layout that provides insight into its structure. In order to visualize large-scale graphs, effective layouts are necessary for understanding. Previous work has shown the potential for graph drawing directly in the web browser by using WebGPU, a new API that brings the full capabilities of modern GPUs to the web. Compared to the existing state-of-the-art for web-based graph visualization, which rely on CPU-based graph drawing algorithms, WebGPU-accelerated work improves performance and scalability. However, we find that existing WebGPU solutions utilize suboptimal quadtree data structures for graph drawing. In this work, we implement a modified quadtree data structure that uses a Hilbert spatial ordering for a fully parallelizable bottom-up construction algorithm in WebGPU. We utilize this data structure, along with optimizations to the quadtree traversal, to propose a massively more performant graph drawing algorithm. We evaluate the performance of our work against the existing state-of-the-art and demonstrate up to 69.5× speed-ups for layout creation of relevant graphs while enabling graph drawing for datasets of much larger size.",
+		"downloads": [
+			{
+				"title": "Code",
+				"list": [
+					{
+						"title": "Github",
+						"link": "https://github.com/harp-lab/GraphWaGu",
+						"icon": "fab fa-github"
+					},
+                    {
+                        "title": "Live demo!",
+                        "link": "https://harp-lab.github.io/GraphWaGu/",
+                        "icon": "fas fa-flask"
+                    }
+				]
+			}
+		]	
+	},
+	{
 		"title": "Interactive Isosurface Visualization in Memory Constrained Environments Using Deep Learning and Speculative Raycasting",
 		"authors": "Landon Dyken, Will Usher, Sidharth Kumar",
 		"venue": "IEEE Transactions on Visualization and Computer Graphics",
