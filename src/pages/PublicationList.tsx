@@ -29,11 +29,10 @@ const Publication: React.FC<Props> = ({ pub, i }) => {
                     <img alt="thumb" className="mx-auto img-thumbnail" src={pub.thumb} />
                 )}
             </div>
-            <div className="col-md-10 col-12 text-md-left">
+            <div style={{fontSize: "medium"}} className="col-md-10 col-12 text-md-left">
                 <b>{pub.title}</b>
                 <br />
-                {pub.authors}. <i>{pub.venue}</i>, {pub.year}.
-                <br/>
+                <div>{pub.authors}. <i>{pub.venue}</i>, {pub.year}.</div>
                 <Link className="mr-2 color2"  to={`/publications/${i}`}>
                     <i className="far fa-file-alt"></i> Project Page</Link>
                 <a className="mr-2 color2" href={pub.paper_pdf}><i className="far fa-file-pdf"></i> PDF</a>

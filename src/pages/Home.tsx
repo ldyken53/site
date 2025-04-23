@@ -12,7 +12,6 @@ const Home: React.FC = () => {
             <div style={{display: 'flex', flexDirection: 'column'}}>
                 <h2 className='display-6 border-bottom'>Graduate Research Assistant</h2>
                 <div style={{fontSize: "large"}}>Welcome! I’m Landon, a PhD student and graduate research assistant at the University of Illinois Chicago, currently pursuing a degree in Computer Science under Dr. Sidharth Kumar. My focus is on data visualization and high performance computing, specifically using applied ML, web-based tools and GPU-accelerated systems. Before beginning my PhD, I received a dual B.S. in Mathematics and Computer Science from the University of Alabama at Birmingham in 2021, and an M.S. in Computer Science from the University of Alabama at Birmingham in 2023. Please feel free to connect with me through any of the platforms below, and check out my publications!</div>
-                <br />
                 <div style={{display: 'flex', flexDirection: 'row'}}>
                     <a className="color2" href="https://www.linkedin.com/in/landon-dyken-a7b086222/">LinkedIn</a>
                     <span className="tab"></span>
