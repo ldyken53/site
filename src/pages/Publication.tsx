@@ -1,8 +1,11 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import publications from '../data/publications.json';
+import MenuScreen, { MenuItem } from '../melee/MenuScreen';
 
-interface page {
+interface Page {
     title: string;
+    label: string;
     authors: string;
     venue: string;
     year: number;
@@ -30,77 +33,79 @@ interface Props {
     id: number;
 }
 
-const Paper: React.FC<Props> = ( { id } ) => {
-    let page : page = publications[id];
-    return (
-        <div className="row col-12 page">
-            <div className="contain">
-            <div className="col-12 text-center">
-                {page.thumb && <img style={{maxHeight: '300px'}} alt="thumb" src={page.thumb} />}
-                <h2>{page.title}</h2>
-                <h4>{page.authors}</h4>
-                <h5>In <i>{page.venue}</i>, {page.year}</h5>
-                {page.award && <p><i className="fas fa-award"></i><i> {page.award}</i></p>}
-                {page.teaser && 
-                    <figure>
-                        <img alt="teaser" className="img-fluid" src={page.teaser}/>
-                        <figcaption className="text-left mt-2">
-                            <b>Fig. 1: </b><i>{page.teaser_caption}</i>
-                        </figcaption>
+type Panel = 'Abstract' | 'Video' | 'BibTeX';
+
+const linkLabel = (title: string) =>
+    title === 'Github' ? 'GitHub' : title === 'Live demo!' ? 'Live Demo' : title;
+
+const linkCaption = (title: string) =>
+    title === 'Github' ? 'Browse the code!' : title === 'Live demo!' ? 'Try it live!' : `Open ${title}.`;
+
+const Paper: React.FC<Props> = ({ id }) => {
+    const page: Page | undefined = publications[id];
+    if (!page) return <Navigate to="/publications" replace />;
+
+    const items: Array<MenuItem & { panel: Panel; video?: string }> = [
+        { label: 'Read Paper', caption: 'Read the paper!', href: page.paper_pdf, panel: 'Abstract' },
+    ];
+    if (page.doi) {
+        items.push({ label: 'Publisher', caption: 'The publisher’s version.', href: `https://dx.doi.org/${page.doi}`, panel: 'Abstract' });
+    }
+    page.downloads.forEach(download => download.list.forEach(link => {
+        items.push({ label: linkLabel(link.title), caption: linkCaption(link.title), href: link.link, panel: 'Abstract' });
+    }));
+    if (page.supplemental_video) {
+        items.push({ label: 'Video', caption: 'Watch the video!', href: page.supplemental_video, panel: 'Video', video: page.supplemental_video });
+    }
+    if (page.presentation_video) {
+        items.push({ label: 'Talk', caption: 'Watch the talk!', href: page.presentation_video, panel: 'Video', video: page.presentation_video });
+    }
+    items.push({
+        label: 'Copy BibTeX',
+        caption: 'Copy the BibTeX!',
+        onConfirm: () => { navigator.clipboard.writeText(page.bibtex); },
+        panel: 'BibTeX',
+    });
+
+    const panel = (i: number) => {
+        const item = items[i];
+        if (item.panel === 'BibTeX') return <code className="info-code">{page.bibtex}</code>;
+        if (item.panel === 'Video') return (
+            <>
+                <h2 className="info-title">{page.title}</h2>
+                <iframe title={item.label} className="info-video" allowFullScreen src={item.video} />
+            </>
+        );
+        return (
+            <>
+                {page.thumb && <img className="info-image" alt="" src={page.thumb} />}
+                <h2 className="info-title">{page.title}</h2>
+                <p className="info-meta">{page.authors}</p>
+                <p className="info-meta">In <i>{page.venue}</i>, {page.year}</p>
+                {page.award && <span className="info-award">{page.award}</span>}
+                {page.teaser && (
+                    <figure style={{ margin: '16px 0 0' }}>
+                        <img alt="teaser" className="info-image" src={page.teaser} />
+                        <figcaption className="info-meta"><b>Fig. 1: </b><i>{page.teaser_caption}</i></figcaption>
                     </figure>
-                }
-            </div>
-            <div className="col-12 mt-2">
-                <h2 className="border-bottom border-secondary">Abstract</h2>
-                <p style={{fontSize: "small"}}>{page.abstract}</p>
-            </div>
-            <div className="col-12 mt-2">
-                <h2 className="border-bottom border-secondary">Links</h2>
-                <dl>
-                    <dt>Publication</dt>
-                    <dd><a href={page.paper_pdf}><i className="far fa-file-pdf"></i> Paper (PDF)</a></dd>
-                    {page.doi && <dd><a href={`https://dx.doi.org/${page.doi}`}>
-                        <i className="fas fa-external-link-alt"></i> Publisher's Version</a>
-                    </dd>}
-                    {page.downloads.map((download, i) => (
-                        <React.Fragment key={i}>
-                            <dt>{download.title}</dt>
-                            {download.list.map((link, j) => (
-                                <dd key={j}><a href={link.link}>
-                                    {link.link.includes("youtu.be") ? <i className="fab fa-youtube"></i> : 
-                                    link.icon ? <i className={link.icon}></i> : <i className="fas fa-external-link-alt"></i> } 
-                                    {link.title}
-                                </a></dd>
-                            ))}
-                        </React.Fragment>
-                    ))}
-                </dl>
-            </div>
-            {page.supplemental_video &&
-                <div className="col-12 mt-2">
-                    <h2 className="border-bottom border-secondary">Supplemental Video</h2>
-                    <div className="embed-responsive embed-responsive-16by9">
-                        <iframe title="Supplemental" className="embed-responsive-item" allowFullScreen src={page.supplemental_video}>
-                        </iframe>
-                    </div>
-                </div>
-            }
-            {page.presentation_video &&
-                <div className="col-12 mt-2">
-                    <h2 className="border-bottom border-secondary">Presentation Video</h2>
-                    <div className="embed-responsive embed-responsive-16by9">
-                        <iframe title="Presentation" className="embed-responsive-item" allowFullScreen src={page.presentation_video}>
-                        </iframe>
-                    </div>
-                </div>
-            }
-            <div className="col-12 mt-2">
-                <h2 className="border-bottom border-secondary">BibTeX</h2>
-                <code style={{whiteSpace: "pre-wrap"}}>{page.bibtex}</code>
-            </div>
-            </div>
-        </div>
+                )}
+                <h3 className="info-heading">Abstract</h3>
+                <p className="info-body">{page.abstract}</p>
+            </>
+        );
+    };
+
+    return (
+        <MenuScreen
+            title={['Publications', page.label]}
+            hue="red"
+            parent="/publications"
+            layout="detail"
+            items={items}
+            panel={panel}
+            paneLabel={i => items[i].panel}
+        />
     );
-}
+};
 
 export default Paper;

@@ -1,13 +1,16 @@
 import React from 'react';
+import MenuScreen from '../melee/MenuScreen';
 
-const Fun: React.FC = () => {
-    return (
-        <div style={{display: 'flex', flexDirection: 'row'}}>
-            <div className="text-center mr-4">
-                <video width="90%" height="80%" controls src="Meteor.mp4"  />
-            </div>
-        </div>
-    );
-}
+const Fun: React.FC = () => (
+    <MenuScreen
+        title={['Camille']}
+        hue="blue"
+        parent="/"
+        layout="detail"
+        items={[{ label: 'Main Menu', caption: 'Back to the menu.', to: '/' }]}
+        paneLabel={() => 'Video'}
+        panel={() => <video className="info-video" controls src="Meteor.mp4" />}
+    />
+);
 
 export default Fun;

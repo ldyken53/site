@@ -1,13 +1,56 @@
-body {
+/* Tokens from design.md (Melee Main Menu). */
+:root {
+  --surface: #10112E;
+  --surface-dim: #0C0C28;
+  --surface-bright: #1A1B48;
+  --surface-container-high: #1F2148;
+  --surface-container-lowest: #04050E;
+  --on-surface: #C8D8E6;
+  --on-surface-variant: #B0B4BC;
+  --on-surface-dim: #777A8A;
+
+  --primary: #FFCC00;
+  --on-primary: #000000;
+  --primary-dim: #D0A040;
+  --primary-container: #9A7834;
+  --primary-bright: #FBF06D;
+  --on-primary-container: #07070F;
+
+  --secondary: #4A56A8;
+  --secondary-bright: #6799D3;
+  --secondary-variant: #C45244;
+  --secondary-tint: #1E9832;
+
+  --tertiary-container: rgba(0, 60, 56, 0.40);
+  --on-tertiary-container: var(--on-surface);
+  --outline: #A1A4B6;
+
+  --font: 'Folk Pro', Arimo, 'Liberation Sans', Arial, Helvetica, sans-serif;
+  --hard-shadow: 3px 3px 0 #000;
+}
+
+html,
+body,
+#root {
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+}
+
+body {
+  background: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font);
+  font-weight: 700;
+  overflow: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
