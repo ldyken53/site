@@ -44,8 +44,9 @@ const Paper: React.FC<{ param: string }> = ({ param }) => {
             <PubLinks pub={pub} copy={false} />
             {pub.supplemental_video && (
                 <>
-                    <h2 className="section-title">Supplemental Video</h2>
-                    <iframe title="Supplemental video" className="video" allowFullScreen src={pub.supplemental_video} />
+                    <h2 className="section-title">{pub.supplemental_video_title ?? 'Supplemental Video'}</h2>
+                    {pub.supplemental_video_note && <p className="video-note">{pub.supplemental_video_note}</p>}
+                    <iframe title={pub.supplemental_video_title ?? 'Supplemental video'} className="video" allowFullScreen src={pub.supplemental_video} />
                 </>
             )}
             {pub.presentation_video && (

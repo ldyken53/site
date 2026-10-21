@@ -21,6 +21,9 @@ export interface Publication {
         list: Array<{ link: string; icon?: string; title: string }>;
     }>;
     supplemental_video?: string;
+    // Optional heading and caption for the supplemental video.
+    supplemental_video_title?: string;
+    supplemental_video_note?: string;
     presentation_video?: string;
     bibtex?: string;
 }

@@ -89,6 +89,7 @@
 		"title": "Accelerating Web-Based Graph Drawing with Bottom-Up GPU Quadtree Construction",
 		"short_title": "graphwagu-pacificvis2025",
 		"category": "Conference Papers",
+		"award": "2nd Place, UIC Image of Research 2025 (Moving Image)",
 		"authors": "Landon Dyken, Will Usher, Steve Petruzza, Stavros Sintos, Sidharth Kumar",
 		"venue": "2025 IEEE 18th Pacific Visualization Conference (PacificVis)",
 		"year": 2025,
@@ -114,6 +115,8 @@
 			}
 		],
 		"supplemental_video": "https://www.youtube.com/embed/tfcHj7v7FU0?si=poT1ylxNl7lVbIop",
+		"supplemental_video_title": "Demo Video",
+		"supplemental_video_note": "This demo video won 2nd place in the Moving Image category of the UIC 2025 Image of Research competition.",
 		"bibtex": "@inproceedings{dyken_graph25,\n  author = {Dyken, Landon and Usher, Will and Petruzza, Steve and Sintos, Stavros and Kumar, Sidharth},\n  title = {{Accelerating Web-Based Graph Drawing with Bottom-Up GPU Quadtree Construction}},\n  booktitle = {2025 IEEE 18th Pacific Visualization Conference (PacificVis)},\n  pages = {24--29},\n  address = {Taipei, Taiwan},\n  year = {2025},\n  doi = {10.1109/PacificVis64226.2025.00008}\n}"
 	},
 	{
