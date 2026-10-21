@@ -211,51 +211,5 @@
 		"thumb": "/img/cudf.png",
 		"abstract": "Datalog, a bottom-up declarative logic programming language, has a wide variety of uses for deduction, modeling, and data analysis across application domains. Datalog can be efficiently implemented using relational algebra primitives such as join, projection and union. While there exist several multi-threaded and multi-core implementations of Datalog targeting CPU-based systems, our work makes an inroad towards developing a Datalog implementation for GPUs. We demonstrate the feasibility of a high-performance relational algebra backend for a subset of Datalog applications that can effectively leverage the parallelism of GPUs using cuDF. cuDF is a library from the Rapids suite that uses the NVIDIA CUDA programming model for GPU parallelism. It provides similar functionalities to Pandas, a popular data analysis engine. In this paper, we analyze and evaluate the performance of cuDF versus Pandas for two graph-mining problems implemented in Datalog, (1) triangle counting and (2)  transitive-closure computation.",
 		"bibtex": "@inproceedings{shovon_cudf_2022,\n  author = {Shovon, Ahmedur Rahman and Dyken, Landon and Green, Oded and Gilray, Thomas and Kumar, Sidharth},\n  title = {{Accelerating Datalog Applications with cuDF}},\n  booktitle = {2022 IEEE/ACM Workshop on Irregular Applications: Architectures and Algorithms (IA3)},\n  pages = {41--45},\n  address = {Dallas, TX, USA},\n  year = {2022},\n  doi = {10.1109/IA356718.2022.00012}\n}"
-	},
-	{
-		"title": "Efficient Compression of Structured and Unstructured Volumes via Learned 3D Gaussian Representation",
-		"short_title": "gcasr2026-gaussian-compression",
-		"category": "Extended Abstracts",
-		"authors": "Landon Dyken, Sidharth Kumar",
-		"venue": "GCASR '26: 13th Greater Chicago Area Systems Research Workshop",
-		"year": 2026,
-		"bibtex": "@inproceedings{dyken_gcasr_2026,\n  author = {Dyken, Landon and Kumar, Sidharth},\n  title = {{Efficient Compression of Structured and Unstructured Volumes via Learned 3D Gaussian Representation}},\n  booktitle = {GCASR '26: 13th Greater Chicago Area Systems Research Workshop},\n  address = {Chicago, IL, USA},\n  year = {2026}\n}"
-	},
-	{
-		"title": "Towards a GPU-Accelerated Web-Based Graph Rendering Framework for Large-Scale Protein Networks",
-		"short_title": "sc25-protein-graphs",
-		"category": "Extended Abstracts",
-		"authors": "Jiaxin Lu, Landon Dyken, Shilpika Shilpika, Venkatram Vishwanath, Michael Papka, Sidharth Kumar",
-		"venue": "SC '25: International Conference for High Performance Computing, Networking, Storage and Analysis",
-		"year": 2025,
-		"bibtex": "@inproceedings{lu_protein_2025,\n  author = {Lu, Jiaxin and Dyken, Landon and Shilpika, Shilpika and Vishwanath, Venkatram and Papka, Michael and Kumar, Sidharth},\n  title = {{Towards a GPU-Accelerated Web-Based Graph Rendering Framework for Large-Scale Protein Networks}},\n  booktitle = {SC '25: International Conference for High Performance Computing, Networking, Storage and Analysis},\n  address = {St. Louis, MO, USA},\n  year = {2025}\n}"
-	},
-	{
-		"title": "High-Performance Compression of Scientific Volume Data Using Learned 3D Gaussian Models",
-		"short_title": "clsac2025-gaussian-compression",
-		"category": "Extended Abstracts",
-		"authors": "Landon Dyken, Nathan Debardeleben",
-		"venue": "Chesapeake Large Scale Analytics Conference (CLSAC) 2025",
-		"year": 2025,
-		"bibtex": "@inproceedings{dyken_clsac_2025,\n  author = {Dyken, Landon and Debardeleben, Nathan},\n  title = {{High-Performance Compression of Scientific Volume Data Using Learned 3D Gaussian Models}},\n  booktitle = {Chesapeake Large Scale Analytics Conference (CLSAC) 2025},\n  address = {Annapolis, MD, USA},\n  year = {2025}\n}"
-	},
-	{
-		"title": "High-quality Approximation of Scientific Data using 3D Gaussian Splatting",
-		"short_title": "ldav2024-gaussian-approx",
-		"category": "Extended Abstracts",
-		"authors": "Andres Sewell, Landon Dyken, Victor A. Mateevitsi, Will Usher, Jefferson Amstutz, Thomas Marrinan, Khairi Reda, Silvio Rizzi, Joseph A. Insley, Michael E. Papka, Sidharth Kumar, Steve Petruzza",
-		"venue": "2024 IEEE 14th Symposium on Large Data Analysis and Visualization (LDAV)",
-		"year": 2024,
-		"doi": "10.1109/LDAV64567.2024.00018",
-		"bibtex": "@inproceedings{sewell_gaussian_2024,\n  author = {Sewell, Andres and Dyken, Landon and Mateevitsi, Victor A. and Usher, Will and Amstutz, Jefferson and Marrinan, Thomas and Reda, Khairi and Rizzi, Silvio and Insley, Joseph A. and Papka, Michael E. and Kumar, Sidharth and Petruzza, Steve},\n  title = {{High-quality Approximation of Scientific Data using 3D Gaussian Splatting}},\n  booktitle = {2024 IEEE 14th Symposium on Large Data Analysis and Visualization (LDAV)},\n  address = {St Pete Beach, FL, USA},\n  pages = {73--74},\n  year = {2024},\n  doi = {10.1109/LDAV64567.2024.00018}\n}"
-	},
-	{
-		"title": "Ares–Simulating Type Ia Supernovae on Heterogeneous HPC Architectures",
-		"short_title": "sc23-ares",
-		"category": "Extended Abstracts",
-		"authors": "Landon Dyken, Alexander Holas, Mark Ivan Ugalino, Md Nageeb Bin Zaman",
-		"venue": "SC '23: International Conference for High Performance Computing, Networking, Storage and Analysis",
-		"year": 2023,
-		"bibtex": "@inproceedings{dyken_ares_2023,\n  author = {Dyken, Landon and Holas, Alexander and Ugalino, Mark Ivan and Zaman, Md Nageeb Bin},\n  title = {{Ares–Simulating Type Ia Supernovae on Heterogeneous HPC Architectures}},\n  booktitle = {SC '23: International Conference for High Performance Computing, Networking, Storage and Analysis},\n  address = {Dallas, TX, USA},\n  year = {2023}\n}"
 	}
 ]

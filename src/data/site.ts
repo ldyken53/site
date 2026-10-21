@@ -13,7 +13,7 @@ export const PROFILE = {
 
 export const BIO = [
     'Welcome! I’m Landon, a PhD student and graduate research assistant at the University of Illinois Chicago, currently pursuing a degree in Computer Science under Dr. Sidharth Kumar. My focus is on data visualization and high performance computing, specifically using applied ML, web-based tools and GPU-accelerated systems.',
-    'Before beginning my PhD, I received a dual B.S. in Mathematics and Computer Science from the University of Alabama at Birmingham in 2021, and an M.S. in Computer Science from the University of Alabama at Birmingham in 2023. Please feel free to connect with me through any of the platforms listed here, and check out my publications!',
+    'Before beginning my PhD, I received a B.A. in Computer Science and Mathematics from the University of Alabama at Birmingham in 2022, and an M.S. in Computer Science from the University of Alabama at Birmingham in 2023. Please feel free to connect with me through any of the platforms listed here, and check out my publications!',
 ];
 
 export const CONTACTS = {

@@ -38,7 +38,7 @@ export const findPub = (param: string) => {
     return listed.find(pub => pub.short_title === slug);
 };
 
-export const CATEGORIES = ['Journal Articles', 'Book Chapters', 'Conference Papers', 'Workshop Papers', 'Extended Abstracts'];
+export const CATEGORIES = ['Journal Articles', 'Book Chapters', 'Conference Papers', 'Workshop Papers'];
 
 // AcademicPages groups by category; infer it from the venue unless set.
 export const categoryOf = (pub: Publication) =>
@@ -48,9 +48,7 @@ export const categoryOf = (pub: Publication) =>
             : 'Conference Papers');
 
 export const venueLead = (pub: Publication) =>
-    pub.status === 'In press' ? 'To appear in'
-        : categoryOf(pub) === 'Extended Abstracts' ? 'Presented at'
-            : 'Published in';
+    pub.status === 'In press' ? 'To appear in' : 'Published in';
 
 export interface PubLink {
     label: string;
