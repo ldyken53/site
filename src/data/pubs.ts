@@ -39,18 +39,13 @@ export const categoryOf = (pub: Publication) =>
         : /workshop/i.test(pub.venue) ? 'Workshop Papers'
             : 'Conference Papers');
 
-export const citationOf = (pub: Publication) => ({
-    lead: `${pub.authors} (${pub.year}). "${pub.title}." `,
-    venue: pub.venue,
-});
-
 export interface PubLink {
     label: string;
     href: string;
 }
 
 export const linksOf = (pub: Publication): PubLink[] => {
-    const links: PubLink[] = [{ label: 'Download Paper', href: pub.paper_pdf }];
+    const links: PubLink[] = [{ label: 'Paper', href: pub.paper_pdf }];
     if (pub.doi) links.push({ label: 'Publisher’s Version', href: `https://dx.doi.org/${pub.doi}` });
     pub.downloads?.forEach(group => group.list.forEach(link => links.push({
         label: link.title === 'Github' ? 'Code' : link.title === 'Live demo!' ? 'Live Demo' : link.title,

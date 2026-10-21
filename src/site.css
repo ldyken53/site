@@ -315,11 +315,21 @@
   font-size: 16px;
 }
 
-.page-content .archive-citation {
-  margin: 0 0 8px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--on-surface-variant);
+.link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--primary-dim);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: color 120ms ease;
+}
+
+.link-button:hover {
+  color: var(--primary);
 }
 
 .page-content .archive-links {

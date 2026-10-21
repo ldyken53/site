@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { citationOf, linksOf, listed, publications } from '../data/pubs';
+import PubLinks from '../components/PubLinks';
+import { listed, publications } from '../data/pubs';
 import { usePage } from '../melee/HueContext';
 import ThumbBox from '../melee/ThumbBox';
 
@@ -10,7 +11,6 @@ const Paper: React.FC<{ id: number }> = ({ id }) => {
     const [copied, setCopied] = useState(false);
     if (!pub?.title) return <Navigate to="/publications" replace />;
 
-    const cite = citationOf(pub);
     const at = listed.findIndex(entry => entry.id === id);
     const prev = listed[at - 1];
     const next = listed[at + 1];
@@ -41,14 +41,7 @@ const Paper: React.FC<{ id: number }> = ({ id }) => {
                     <p>{pub.abstract}</p>
                 </>
             )}
-            <p className="archive-links">
-                {linksOf(pub).map((link, i) => (
-                    <React.Fragment key={link.href}>
-                        {i > 0 && <span className="sep"> | </span>}
-                        <a href={link.href}>{link.label}</a>
-                    </React.Fragment>
-                ))}
-            </p>
+            <PubLinks pub={pub} copy={false} />
             {pub.supplemental_video && (
                 <>
                     <h2 className="section-title">Supplemental Video</h2>
@@ -61,7 +54,6 @@ const Paper: React.FC<{ id: number }> = ({ id }) => {
                     <iframe title="Presentation video" className="video" allowFullScreen src={pub.presentation_video} />
                 </>
             )}
-            <p className="archive-citation">Recommended citation: {cite.lead}<i>{cite.venue}</i>.</p>
             {pub.bibtex && (
                 <>
                     <h2 className="section-title">
