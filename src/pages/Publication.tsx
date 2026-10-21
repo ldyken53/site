@@ -2,17 +2,19 @@ import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import Authors from '../components/Authors';
 import PubLinks from '../components/PubLinks';
-import { listed, publications } from '../data/pubs';
+import Venue from '../components/Venue';
+import { findPub, listed } from '../data/pubs';
 import { usePage } from '../melee/HueContext';
 import ThumbBox from '../melee/ThumbBox';
 
-const Paper: React.FC<{ id: number }> = ({ id }) => {
-    const pub = publications[id];
+const Paper: React.FC<{ param: string }> = ({ param }) => {
+    const pub = findPub(param);
     usePage(pub?.title ?? null, 'red');
     const [copied, setCopied] = useState(false);
-    if (!pub?.title) return <Navigate to="/publications" replace />;
+    if (!pub) return <Navigate to="/publications" replace />;
+    if (param !== pub.short_title) return <Navigate to={`/publications/${pub.short_title}`} replace />;
 
-    const at = listed.findIndex(entry => entry.id === id);
+    const at = listed.indexOf(pub);
     const prev = listed[at - 1];
     const next = listed[at + 1];
     const copy = () => {
@@ -25,10 +27,7 @@ const Paper: React.FC<{ id: number }> = ({ id }) => {
         <article>
             <h1 className="page-title">{pub.title}</h1>
             <Authors authors={pub.authors} />
-            <p className="archive-meta">
-                Published in <i>{pub.venue}</i>, {pub.year}
-                {pub.award && <span className="award">{pub.award}</span>}
-            </p>
+            <Venue pub={pub} />
             {pub.thumb && <ThumbBox className="thumb-large" src={pub.thumb} turn={-6} tilt={6} fitImage />}
             {pub.teaser && (
                 <figure className="teaser">
@@ -65,8 +64,8 @@ const Paper: React.FC<{ id: number }> = ({ id }) => {
                 </>
             )}
             <nav className="pagination">
-                {prev ? <Link to={`/publications/${prev.id}`}>← Previous</Link> : <span className="disabled">← Previous</span>}
-                {next ? <Link to={`/publications/${next.id}`}>Next →</Link> : <span className="disabled">Next →</span>}
+                {prev ? <Link to={`/publications/${prev.short_title}`}>← Previous</Link> : <span className="disabled">← Previous</span>}
+                {next ? <Link to={`/publications/${next.short_title}`}>Next →</Link> : <span className="disabled">Next →</span>}
             </nav>
         </article>
     );

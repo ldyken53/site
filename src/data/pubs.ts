@@ -5,8 +5,10 @@ export interface Publication {
     authors: string;
     venue: string;
     year: number;
-    paper_pdf: string;
+    short_title: string;
+    paper_pdf?: string;
     category?: string;
+    status?: string;
     award?: string;
     thumb?: string;
     teaser?: string;
@@ -22,15 +24,21 @@ export interface Publication {
     bibtex?: string;
 }
 
-// Indexed like the JSON array so /publications/:id links stay stable; entries
-// still being written (no title yet) are skipped in listings.
-export const publications = raw as unknown as Publication[];
+// Entries still being written (no title or slug yet) are skipped.
+export const listed = (raw as unknown as Publication[]).filter(pub => pub.title && pub.short_title);
 
-export const listed = publications
-    .map((pub, id) => ({ pub, id }))
-    .filter(({ pub }) => pub.title);
+// Paper pages were once addressed by array position; keep those links working.
+const LEGACY_IDS = [
+    'floodann-pacificvis2025', 'graphwagu-pacificvis2025', 'prog-iso-ml-tvcg24', 'bruck-gpu',
+    'speculative-ldav2023', 'graphwagu', 'cudf',
+];
 
-export const CATEGORIES = ['Journal Articles', 'Conference Papers', 'Workshop Papers'];
+export const findPub = (param: string) => {
+    const slug = /^\d+$/.test(param) ? LEGACY_IDS[Number(param)] : param;
+    return listed.find(pub => pub.short_title === slug);
+};
+
+export const CATEGORIES = ['Journal Articles', 'Book Chapters', 'Conference Papers', 'Workshop Papers', 'Extended Abstracts'];
 
 // AcademicPages groups by category; infer it from the venue unless set.
 export const categoryOf = (pub: Publication) =>
@@ -39,13 +47,19 @@ export const categoryOf = (pub: Publication) =>
         : /workshop/i.test(pub.venue) ? 'Workshop Papers'
             : 'Conference Papers');
 
+export const venueLead = (pub: Publication) =>
+    pub.status === 'In press' ? 'To appear in'
+        : categoryOf(pub) === 'Extended Abstracts' ? 'Presented at'
+            : 'Published in';
+
 export interface PubLink {
     label: string;
     href: string;
 }
 
 export const linksOf = (pub: Publication): PubLink[] => {
-    const links: PubLink[] = [{ label: 'Paper', href: pub.paper_pdf }];
+    const links: PubLink[] = [];
+    if (pub.paper_pdf) links.push({ label: 'Paper', href: pub.paper_pdf });
     if (pub.doi) links.push({ label: 'Publisher’s Version', href: `https://dx.doi.org/${pub.doi}` });
     pub.downloads?.forEach(group => group.list.forEach(link => links.push({
         label: link.title === 'Github' ? 'Code' : link.title === 'Live demo!' ? 'Live Demo' : link.title,

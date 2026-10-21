@@ -9,20 +9,19 @@ const PubLinks: React.FC<{ pub: Publication; copy?: boolean }> = ({ pub, copy = 
         setCopied(true);
         setTimeout(() => setCopied(false), 1500);
     };
+    const items = linksOf(pub).map(link => <a key={link.href} href={link.href}>{link.label}</a>);
+    if (copy && pub.bibtex) {
+        items.push(<button key="bibtex" className="link-button" onClick={copyBibtex}>{copied ? 'Copied!' : 'Copy BibTeX'}</button>);
+    }
+    if (!items.length) return null;
     return (
         <p className="archive-links">
-            {linksOf(pub).map((link, i) => (
-                <React.Fragment key={link.href}>
+            {items.map((item, i) => (
+                <React.Fragment key={item.key}>
                     {i > 0 && <span className="sep"> | </span>}
-                    <a href={link.href}>{link.label}</a>
+                    {item}
                 </React.Fragment>
             ))}
-            {copy && pub.bibtex && (
-                <>
-                    <span className="sep"> | </span>
-                    <button className="link-button" onClick={copyBibtex}>{copied ? 'Copied!' : 'Copy BibTeX'}</button>
-                </>
-            )}
         </p>
     );
 };

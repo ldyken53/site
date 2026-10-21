@@ -12,8 +12,8 @@ import Paper from './pages/Publication';
 import PublicationList from './pages/PublicationList';
 
 function Publication() {
-    const id = useParams()['pubId'];
-    return <Paper key={id} id={parseFloat(id!)} />;
+    const param = useParams()['pubId']!;
+    return <Paper key={param} param={param} />;
 }
 
 function Page() {

@@ -1,16 +1,70 @@
 [
 	{
+		"title": "Volume Encoding Gaussians: Transfer Function-Agnostic 3D Gaussians for Volume Rendering",
+		"short_title": "veg-tvcg2026",
+		"category": "Journal Articles",
+		"authors": "Landon Dyken, Andres Sewell, Will Usher, Nathan Debardeleben, Steve Petruzza, Sidharth Kumar",
+		"venue": "IEEE Transactions on Visualization and Computer Graphics (TVCG), presented at the 2026 IEEE 19th Pacific Visualization Conference (PacificVis)",
+		"year": 2026,
+		"paper_pdf": "https://drive.google.com/file/d/1rQN0RTeyQT2wSaarrR_MXcQbRH0B4fnM/view?usp=sharing",
+		"thumb": "/img/veg.jpg",
+		"doi": "10.1109/TVCG.2026.3694460",
+		"abstract": "Visualizing the large-scale datasets output by HPC resources presents a difficult challenge, as the memory and compute power required become prohibitively expensive for end user systems. Novel view synthesis techniques can address this by producing a small, interactive model of the data, requiring only a set of training images to learn from. While these models allow accessible visualization of large data and complex scenes, they do not provide the interactions needed for scientific volumes, as they do not support interactive selection of transfer functions and lighting parameters. To address this, we introduce Volume Encoding Gaussians (VEG), a 3D Gaussian-based representation for volume visualization that supports arbitrary color and opacity mappings. Unlike prior 3D Gaussian Splatting (3DGS) methods that store color and opacity for each Gaussian, VEG decouple the visual appearance from the data representation by encoding only scalar values, enabling transfer function-agnostic rendering of 3DGS models. To ensure complete scalar field coverage, we introduce an opacity-guided training strategy, using differentiable rendering with multiple transfer functions to optimize our data representation. This allows VEG to preserve fine features across the full scalar range of a dataset while remaining independent of any specific transfer function. Across a diverse set of volume datasets, we demonstrate that our method outperforms the state-of-the-art on transfer functions unseen during training, while requiring a fraction of the memory and training time.",
+		"bibtex": "@article{dyken_veg_2026,\n  author = {Dyken, Landon and Sewell, Andres and Usher, Will and Debardeleben, Nathan and Petruzza, Steve and Kumar, Sidharth},\n  title = {{Volume Encoding Gaussians: Transfer Function-Agnostic 3D Gaussians for Volume Rendering}},\n  journal = {IEEE Transactions on Visualization and Computer Graphics},\n  volume = {32},\n  number = {6},\n  pages = {4883--4893},\n  year = {2026},\n  doi = {10.1109/TVCG.2026.3694460}\n}"
+	},
+	{
+		"title": "Terascale Query Processing in the Browser: Rethinking GPU Acceleration",
+		"short_title": "terascale-cluster2026",
+		"category": "Conference Papers",
+		"status": "In press",
+		"authors": "Jiaxin Lu, Landon Dyken, Yihao Sun, Kristopher Micinski, Thomas Gilray, Sidharth Kumar",
+		"venue": "2026 IEEE International Conference on Cluster Computing (Cluster)",
+		"year": 2026,
+		"bibtex": "@inproceedings{lu_terascale_2026,\n  author = {Lu, Jiaxin and Dyken, Landon and Sun, Yihao and Micinski, Kristopher and Gilray, Thomas and Kumar, Sidharth},\n  title = {{Terascale Query Processing in the Browser: Rethinking GPU Acceleration}},\n  booktitle = {2026 IEEE International Conference on Cluster Computing (Cluster)},\n  address = {Alexandria, VA, USA},\n  note = {To appear},\n  year = {2026}\n}"
+	},
+	{
+		"title": "Faster Annotation for Elevation-Guided Flood Extent Mapping by Consistency-Enhanced Active Learning",
+		"short_title": "alfa-ijcai2025",
+		"category": "Conference Papers",
+		"authors": "Saugat Adhikari, Da Yan, Tianyang Wang, Landon Dyken, Sidharth Kumar, Lyuheng Yuan, Akhlaque Ahmad, Jiao Han, Yang Zhou, Steve Petruzza",
+		"venue": "Thirty-Fourth International Joint Conference on Artificial Intelligence (IJCAI 2025)",
+		"year": 2025,
+		"doi": "10.24963/ijcai.2025/1057",
+		"abstract": "Flood extent mapping is crucial for disaster response and damage assessment. While Earth imagery and terrain data (in the form of DEM) are now readily available, there are few flood annotation data for training machine learning models, which hinders the automated mapping of flooded areas. We propose ALFA, an interactive active-learning-based approach to minimize the annotators' efforts when preparing the ground-truth flood map in a satellite image. ALFA calibrates the prediction consistency of a segmentation model (1) across training cycles and (2) for various data augmentations. The two consistencies are integrated into the design of both the acquisition function and the loss function to enhance the robustness of active learning with limited annotation inputs. ALFA recommends those superpixels that the underlying model is most uncertain about, and users can annotate their pixels with minimal clicks with the help of elevation guidance. Extensive experiments on various regions hit by flooding show that we can improve the annotation time from hours to around 20 minutes. ALFA is open sourced at https://github.com/saugatadhikari/alfa.",
+		"downloads": [
+			{
+				"title": "Code",
+				"list": [
+					{
+						"title": "Github",
+						"link": "https://github.com/saugatadhikari/alfa"
+					}
+				]
+			}
+		],
+		"bibtex": "@inproceedings{adhikari_alfa_2025,\n  author = {Adhikari, Saugat and Yan, Da and Wang, Tianyang and Dyken, Landon and Kumar, Sidharth and Yuan, Lyuheng and Ahmad, Akhlaque and Han, Jiao and Zhou, Yang and Petruzza, Steve},\n  title = {{Faster Annotation for Elevation-Guided Flood Extent Mapping by Consistency-Enhanced Active Learning}},\n  booktitle = {Proceedings of the Thirty-Fourth International Joint Conference on Artificial Intelligence (IJCAI-25)},\n  pages = {9511--9519},\n  address = {Montreal, Canada},\n  year = {2025},\n  doi = {10.24963/ijcai.2025/1057}\n}"
+	},
+	{
+		"title": "Understanding GPU Acceleration Using WebGPU",
+		"short_title": "webgpu-chapter2025",
+		"category": "Book Chapters",
+		"status": "In press",
+		"authors": "Landon Dyken, Jiaxin Lu, Steve Petruzza, Will Usher, Sidharth Kumar",
+		"venue": "Topics in Parallel and Distributed Computing: From Concepts to the Classroom, Vol. 3 (Springer)",
+		"year": 2025,
+		"bibtex": "@incollection{dyken_webgpu_2025,\n  author = {Dyken, Landon and Lu, Jiaxin and Petruzza, Steve and Usher, Will and Kumar, Sidharth},\n  title = {{Understanding GPU Acceleration Using WebGPU}},\n  booktitle = {Topics in Parallel and Distributed Computing: From Concepts to the Classroom},\n  volume = {3},\n  publisher = {Springer},\n  note = {In press},\n  year = {2025}\n}"
+	},
+	{
 		"title": "Enabling Fast and Accurate Crowdsourced Annotation for Elevation-Aware Flood Extent Mapping",
+		"short_title": "floodann-pacificvis2025",
+		"category": "Conference Papers",
+		"award": "Honorable Mention",
 		"authors": "Landon Dyken, Saugat Adhikari, Pravin Poudel, Steve Petruzza, Da Yan, Will Usher, Sidharth Kumar",
-		"venue": "IEEE 18th Pacific Visualization Conference (PacificVis)",
+		"venue": "2025 IEEE 18th Pacific Visualization Conference (PacificVis)",
+		"year": 2025,
+		"doi": "10.1109/PacificVis64226.2025.00025",
 		"paper_pdf": "https://drive.google.com/file/d/1b9UmVqa7Pop6HoWim6IFrlu9U_wpjKl2/view?usp=sharing",
 		"thumb": "/img/floodann.jpg",
-		"year": 2025,
-		"exact_date": "2025-04-24 00:00:00 -0600",
-		"short_title": "floodann-pacificvis2025",
-		"label": "FloodTrace",
-		"venue_short": "PacificVis 2025",
-		"bibtex": "@inproceedings{dyken_flood_ann25,\nauthor={Dyken, Landon and Adhikari, Saugat and Poudel, Pravin and Petruzza, Steve and Yan, Da and Usher, Will and Kumar, Sidharth},\nbooktitle={IEEE Pacific Visualization Conference (To Appear)},\ntitle={Enabling Fast and Accurate Crowdsourced Annotation for Elevation-Aware Flood Extent Mapping},\nyear={2025},\n}",
 		"abstract": "Mapping the extent of flood events is a necessary and important aspect of disaster management. In recent years, deep learning methods have evolved as an effective tool to quickly label high-resolution imagery and provide necessary flood extent mappings. These methods, though, require large amounts of annotated training data to create models that are accurate and robust to new flooded imagery. In this work, we present FloodTrace, a web-based application that enables effective crowdsourcing of flooded region annotation for machine learning applications. To create this application, we conducted extensive interviews with domain experts to produce a set of formal requirements. Our work brings topological segmentation tools to the web and greatly improves annotation efficiency compared to the state-of-the-art. The user-friendliness of our solution allows researchers to outsource annotations to non-experts and utilize them to produce training data with equal quality to fully expert-labeled data. We conducted a user study to confirm our application’s effectiveness in which 266 graduate students annotated high-resolution aerial imagery from Hurricane Matthew in North Carolina. Experimental results show the efficiency benefits of our application for untrained users, with median annotation time less than half the state-of-the-art annotation method. In addition, using our application’s aggregation and correction framework, flood detection models trained on crowdsourced annotations were able to achieve performance equal to models trained on fully expert-labeled annotations, while requiring a fraction of the expert’s time.",
 		"downloads": [
 			{
@@ -23,21 +77,19 @@
 					}
 				]
 			}
-		]	
+		],
+		"bibtex": "@inproceedings{dyken_flood_ann25,\n  author = {Dyken, Landon and Adhikari, Saugat and Poudel, Pravin and Petruzza, Steve and Yan, Da and Usher, Will and Kumar, Sidharth},\n  title = {{Enabling Fast and Accurate Crowdsourced Annotation for Elevation-Aware Flood Extent Mapping}},\n  booktitle = {2025 IEEE 18th Pacific Visualization Conference (PacificVis)},\n  pages = {192--202},\n  address = {Taipei, Taiwan},\n  note = {Honorable Mention},\n  year = {2025},\n  doi = {10.1109/PacificVis64226.2025.00025}\n}"
 	},
 	{
 		"title": "Accelerating Web-Based Graph Drawing with Bottom-Up GPU Quadtree Construction",
+		"short_title": "graphwagu-pacificvis2025",
+		"category": "Conference Papers",
 		"authors": "Landon Dyken, Will Usher, Steve Petruzza, Stavros Sintos, Sidharth Kumar",
-		"supplemental_video": "https://www.youtube.com/embed/tfcHj7v7FU0?si=poT1ylxNl7lVbIop",
-		"venue": "IEEE 18th Pacific Visualization Conference (PacificVis)",
+		"venue": "2025 IEEE 18th Pacific Visualization Conference (PacificVis)",
+		"year": 2025,
+		"doi": "10.1109/PacificVis64226.2025.00008",
 		"paper_pdf": "https://sidharthkumar.io/publications/pacificVisGraphWagu.pdf",
 		"thumb": "/img/graphwagu2.png",
-		"year": 2025,
-		"exact_date": "2025-04-23 00:00:00 -0600",
-		"short_title": "graphwagu-pacificvis2025",
-		"label": "GPU Quadtree",
-		"venue_short": "PacificVis 2025",
-		"bibtex": "@inproceedings{dyken_graph25,\nauthor={Dyken, Landon and Usher, Will and Petruzza, Steve and Sintos, Stavros and Kumar, Sidharth},\nbooktitle={IEEE Pacific Visualization Conference (To Appear)},\ntitle={Accelerating Web-Based Graph Drawing with Bottom-Up GPU Quadtree Construction},\nyear={2025},\n}",
 		"abstract": "Graph drawing, or graph layout creation, is a computationally difficult challenge in visualization that involves placing the vertices of a graph into a layout that provides insight into its structure. In order to visualize large-scale graphs, effective layouts are necessary for understanding. Previous work has shown the potential for graph drawing directly in the web browser by using WebGPU, a new API that brings the full capabilities of modern GPUs to the web. Compared to the existing state-of-the-art for web-based graph visualization, which rely on CPU-based graph drawing algorithms, WebGPU-accelerated work improves performance and scalability. However, we find that existing WebGPU solutions utilize suboptimal quadtree data structures for graph drawing. In this work, we implement a modified quadtree data structure that uses a Hilbert spatial ordering for a fully parallelizable bottom-up construction algorithm in WebGPU. We utilize this data structure, along with optimizations to the quadtree traversal, to propose a massively more performant graph drawing algorithm. We evaluate the performance of our work against the existing state-of-the-art and demonstrate up to 69.5× speed-ups for layout creation of relevant graphs while enabling graph drawing for datasets of much larger size.",
 		"downloads": [
 			{
@@ -48,27 +100,27 @@
 						"link": "https://github.com/harp-lab/GraphWaGu",
 						"icon": "fab fa-github"
 					},
-                    {
-                        "title": "Live demo!",
-                        "link": "https://harp-lab.github.io/GraphWaGu/",
-                        "icon": "fas fa-flask"
-                    }
+					{
+						"title": "Live demo!",
+						"link": "https://harp-lab.github.io/GraphWaGu/",
+						"icon": "fas fa-flask"
+					}
 				]
 			}
-		]	
+		],
+		"supplemental_video": "https://www.youtube.com/embed/tfcHj7v7FU0?si=poT1ylxNl7lVbIop",
+		"bibtex": "@inproceedings{dyken_graph25,\n  author = {Dyken, Landon and Usher, Will and Petruzza, Steve and Sintos, Stavros and Kumar, Sidharth},\n  title = {{Accelerating Web-Based Graph Drawing with Bottom-Up GPU Quadtree Construction}},\n  booktitle = {2025 IEEE 18th Pacific Visualization Conference (PacificVis)},\n  pages = {24--29},\n  address = {Taipei, Taiwan},\n  year = {2025},\n  doi = {10.1109/PacificVis64226.2025.00008}\n}"
 	},
 	{
 		"title": "Interactive Isosurface Visualization in Memory Constrained Environments Using Deep Learning and Speculative Raycasting",
+		"short_title": "prog-iso-ml-tvcg24",
+		"category": "Journal Articles",
 		"authors": "Landon Dyken, Will Usher, Sidharth Kumar",
-		"venue": "IEEE Transactions on Visualization and Computer Graphics",
+		"venue": "IEEE Transactions on Visualization and Computer Graphics (TVCG)",
+		"year": 2025,
+		"doi": "10.1109/TVCG.2024.3420225",
 		"paper_pdf": "https://drive.google.com/file/d/1nxbCFArvHz-6HdR1oCn5PORzVu6R7d3P/view?usp=drive_link",
 		"thumb": "/img/prog-iso-ml.jpg",
-		"year": 2024,
-		"exact_date": "2024-07-01 00:00:00 -0600",
-		"short_title": "prog-iso-ml-tvcg24",
-		"label": "Learned Isosurfaces",
-		"venue_short": "TVCG 2024",
-		"bibtex": "@article{dyken_prog_iso_ml,\nauthor={Dyken, Landon and Usher, Will and Kumar, Sidharth},\njournal={IEEE Transactions on Visualization and Computer Graphics}, \ntitle={Interactive Isosurface Visualization in Memory Constrained Environments Using Deep Learning and Speculative Raycasting}, \nyear={2024},\ndoi={10.1109/TVCG.2024.3420225}}",
 		"abstract": "New web technologies have enabled the deployment of powerful GPU-based computational pipelines that run entirely in the web browser, opening a new frontier for accessible scientific visualization applications. However, these new capabilities do not address the memory constraints of lightweight end-user devices encountered when attempting to visualize the massive data sets produced by today's simulations and data acquisition systems. We propose a novel implicit isosurface rendering algorithm for interactive visualization of massive volumes within a small memory footprint. We achieve this by progressively traversing a wavefront of rays through the volume and decompressing blocks of the data on-demand to perform implicit ray-isosurface intersections, displaying intermediate results each pass. We improve the quality of these intermediate results using a pretrained deep neural network that reconstructs the output of early passes, allowing for interactivity with better approximates of the final image. To accelerate rendering and increase GPU utilization, we introduce speculative ray-block intersection into our algorithm, where additional blocks are traversed and intersected speculatively along rays to exploit additional parallelism in the workload. Our algorithm is able to trade-off image quality to greatly decrease rendering time for interactive rendering even on lightweight devices. Our entire pipeline is run in parallel on the GPU to leverage the parallel computing power that is available even on lightweight end-user devices. We compare our algorithm to the state of the art in low-overhead isosurface extraction and demonstrate that it achieves 1.7× – 5.7× reductions in memory overhead and up to 8.4× reductions in data decompressed.",
 		"downloads": [
 			{
@@ -79,69 +131,53 @@
 						"link": "https://github.com/ldyken53/TVCG-progiso",
 						"icon": "fab fa-github"
 					},
-                    {
-                        "title": "Live demo!",
-                        "link": "https://ldyken53.github.io/TVCG-progiso/#dataset=miranda",
-                        "icon": "fas fa-flask"
-                    }
-				]
-			}
-		]	
-	},
-	{
-		"title": "Bruck Algorithm Performance Analysis for Multi-GPU All-to-All Communication",
-		"authors": "Andres Sewell, Ke Fan, Ahmedur Rahman Shovon, Landon Dyken, Sidharth Kumar, Steve Petruzza",
-		"venue": "Proceedings of the International Conference on High Performance Computing in Asia-Pacific Region (HPCAsia '24)",
-		"paper_pdf": "https://dl.acm.org/doi/pdf/10.1145/3635035.3635047",
-		"thumb": "/img/bruck.png",
-		"year": 2024,
-		"exact_date": "2024-01-19 00:00:00 -0600",
-		"short_title": "bruck-gpu",
-		"label": "Multi-GPU Bruck",
-		"venue_short": "HPCAsia 2024",
-		"bibtex": "@inproceedings{10.1145/3635035.3635047,\nauthor = {Sewell, Andres and Fan, Ke and Shovon, Ahmedur Rahman and Dyken, Landon and Kumar, Sidharth and Petruzza, Steve},\ntitle = {Bruck Algorithm Performance Analysis for Multi-GPU All-to-All Communication},\nyear = {2024},\nisbn = {9798400708893},\npublisher = {Association for Computing Machinery},\naddress = {New York, NY, USA},\nurl = {https://doi.org/10.1145/3635035.3635047},\ndoi = {10.1145/3635035.3635047},\nbooktitle = {Proceedings of the International Conference on High Performance Computing in Asia-Pacific Region},\npages = {127–133},\nnumpages = {7},\nlocation = {Nagoya, Japan},\nseries = {HPCAsia '24}\n}",
-		"abstract": "In high-performance computing, collective communication is critical for facilitating comprehensive data exchange involving all processes within an MPI communicator. Due to their inherently global nature, many collective operations present scalability challenges, particularly the all-to-all data shuffle with its quadratic communication pattern. Using a logarithmic communication pattern, the Bruck algorithm was designed to provide communication efficiency for all-to-all data shuffles involving short-sized messages. The Bruck algorithm has been extensively used to facilitate global data shuffles in a multi-CPU environment and is also part of the MPICH and Open MPI implementations. This work presents the first investigation of using the Bruck algorithm for all-to-all communication in multi-GPU systems using the NVIDIA Collective Communications Library (NCCL). Our experimental study demonstrates that while the Bruck algorithm exhibits superior performance for small-sized messages in a multi-CPU environment, the same advantages are not evident for multi-GPU environments. Furthermore, we describe and compare an optimized Bruck algorithm implementation in NCCL and compare it to NCCL’s default all-to-all and MPI-based implementations. Finally, we discuss the challenges and opportunities of implementing new multi-GPU collectives using NCCL’s public-facing API.",
-		"downloads": [
-			{
-				"title": "Code",
-				"list": [
 					{
-						"title": "Github",
-						"link": "https://github.com/ldyken53/TVCG-progiso",
-						"icon": "fab fa-github"
+						"title": "Live demo!",
+						"link": "https://ldyken53.github.io/TVCG-progiso/#dataset=miranda",
+						"icon": "fas fa-flask"
 					}
 				]
 			}
-		]	
+		],
+		"bibtex": "@article{dyken_prog_iso_ml,\n  author = {Dyken, Landon and Usher, Will and Kumar, Sidharth},\n  title = {{Interactive Isosurface Visualization in Memory Constrained Environments Using Deep Learning and Speculative Raycasting}},\n  journal = {IEEE Transactions on Visualization and Computer Graphics},\n  volume = {31},\n  number = {2},\n  pages = {1582--1597},\n  year = {2025},\n  doi = {10.1109/TVCG.2024.3420225}\n}"
+	},
+	{
+		"title": "Bruck Algorithm Performance Analysis for Multi-GPU All-to-All Communication",
+		"short_title": "bruck-gpu",
+		"category": "Conference Papers",
+		"authors": "Andres Sewell, Ke Fan, Ahmedur Rahman Shovon, Landon Dyken, Sidharth Kumar, Steve Petruzza",
+		"venue": "International Conference on High Performance Computing in Asia-Pacific Region (HPCAsia 2024)",
+		"year": 2024,
+		"doi": "10.1145/3635035.3635047",
+		"paper_pdf": "https://dl.acm.org/doi/pdf/10.1145/3635035.3635047",
+		"thumb": "/img/bruck.png",
+		"abstract": "In high-performance computing, collective communication is critical for facilitating comprehensive data exchange involving all processes within an MPI communicator. Due to their inherently global nature, many collective operations present scalability challenges, particularly the all-to-all data shuffle with its quadratic communication pattern. Using a logarithmic communication pattern, the Bruck algorithm was designed to provide communication efficiency for all-to-all data shuffles involving short-sized messages. The Bruck algorithm has been extensively used to facilitate global data shuffles in a multi-CPU environment and is also part of the MPICH and Open MPI implementations. This work presents the first investigation of using the Bruck algorithm for all-to-all communication in multi-GPU systems using the NVIDIA Collective Communications Library (NCCL). Our experimental study demonstrates that while the Bruck algorithm exhibits superior performance for small-sized messages in a multi-CPU environment, the same advantages are not evident for multi-GPU environments. Furthermore, we describe and compare an optimized Bruck algorithm implementation in NCCL and compare it to NCCL’s default all-to-all and MPI-based implementations. Finally, we discuss the challenges and opportunities of implementing new multi-GPU collectives using NCCL’s public-facing API.",
+		"bibtex": "@inproceedings{sewell_bruck_2024,\n  author = {Sewell, Andres and Fan, Ke and Shovon, Ahmedur Rahman and Dyken, Landon and Kumar, Sidharth and Petruzza, Steve},\n  title = {{Bruck Algorithm Performance Analysis for Multi-GPU All-to-All Communication}},\n  booktitle = {Proceedings of the International Conference on High Performance Computing in Asia-Pacific Region (HPCAsia 2024)},\n  pages = {127--133},\n  publisher = {Association for Computing Machinery},\n  address = {Nagoya, Japan},\n  year = {2024},\n  doi = {10.1145/3635035.3635047}\n}"
 	},
 	{
 		"title": "Speculative Progressive Raycasting for Memory Constrained Isosurface Visualization of Massive Volumes",
+		"short_title": "speculative-ldav2023",
+		"category": "Conference Papers",
+		"award": "Best Paper",
 		"authors": "Will Usher, Landon Dyken, Sidharth Kumar",
-		"venue": "IEEE Symposium on Large Data Analysis and Visualization (LDAV)",
+		"venue": "2023 IEEE 13th Symposium on Large Data Analysis and Visualization (LDAV)",
+		"year": 2023,
+		"doi": "10.1109/LDAV60332.2023.00007",
 		"paper_pdf": "https://drive.google.com/file/d/1COYwLhFFqFvQkPeaj9gIgUk3EG54n4pj/view",
 		"thumb": "/img/prog-iso.png",
-		"year": 2023,
-		"exact_date": "2022-11-18 00:00:00 -0600",
-		"short_title": "cudf",
-		"label": "Speculative Raycasting",
-		"venue_short": "LDAV 2023",
-		"award": "Best Paper",
-		"bibtex": "@inproceedings{usher_speculative_2023,\nbooktitle = {13th IEEE Symposium on Large Data Analysis and Visualization},\ntitle = {{Speculative} {Progressive} {Raycasting} for {Memory} {Constrained} {Isosurface} {Visualization} of {Massive} {Volumes}},\nauthor = {Usher, Will and Dyken, Landon and Kumar, Sidharth},\nyear = {2023},\n}",
 		"abstract": "New web technologies have enabled the deployment of powerful GPU-based computational pipelines that run entirely in the web browser, opening a new frontier for accessible scientific visualization applications. However, these new capabilities do not address the memory constraints of lightweight end-user devices encountered when attempting to visualize the massive data sets produced by today’s simulations and data acquisition systems. In this paper, we propose a novel implicit isosurface rendering algorithm for interactive visualization of massive volumes within a small memory footprint. We achieve this by progressively traversing a wavefront of rays through the volume and decompressing blocks of the data on-demand to perform implicit ray-isosurface intersections. The progressively rendered surface is displayed after each pass to improve interactivity. Furthermore, to accelerate rendering and increase GPU utilization, we introduce speculative ray-block intersection into our algorithm, where additional blocks are traversed and intersected speculatively along rays as other rays terminate to exploit additional parallelism in the workload. Our entire pipeline is run in parallel on the GPU to leverage the parallel computing power that is available even on lightweight end-user devices. We compare our algorithm to the state of the art in low-overhead isosurface extraction and demonstrate that it achieves 1.7×–5.7× reductions in memory overhead and up to 8.4× reductions in data decompressed.",
-		"downloads": []	
+		"bibtex": "@inproceedings{usher_speculative_2023,\n  author = {Usher, Will and Dyken, Landon and Kumar, Sidharth},\n  title = {{Speculative Progressive Raycasting for Memory Constrained Isosurface Visualization of Massive Volumes}},\n  booktitle = {2023 IEEE 13th Symposium on Large Data Analysis and Visualization (LDAV)},\n  pages = {1--11},\n  address = {Melbourne, Australia},\n  note = {Best Paper},\n  year = {2023},\n  doi = {10.1109/LDAV60332.2023.00007}\n}"
 	},
 	{
 		"title": "GraphWaGu: GPU Powered Large Scale Graph Layout Computation and Rendering for the Web",
-		"authors": "Landon Dyken, Pravin Poudel, Will Usher, Steve Petruzza, Jake Y. Chen, Sidharth Kumar",
-		"venue": "Eurographics Symposium on Parallel Graphics and Visualization",
+		"short_title": "graphwagu",
+		"category": "Conference Papers",
+		"authors": "Landon Dyken, Pravin Poudel, Will Usher, Steve Petruzza, Jake Chen, Sidharth Kumar",
+		"venue": "Eurographics Symposium on Parallel Graphics and Visualization (EGPGV)",
+		"year": 2022,
+		"doi": "10.2312/pgv.20221067",
 		"paper_pdf": "https://drive.google.com/file/d/16PWup93vFLCWqQexop2IfRyMeQGniLqa/view?usp=sharing",
 		"thumb": "/img/graphwagu.png",
-		"year": 2022,
-		"short_title": "graphwagu",
-		"label": "GraphWaGu",
-		"venue_short": "EGPGV 2022",
-        "presentation_video": "https://www.youtube.com/embed/aEJRqQm-8Ew?start=1748",
-		"bibtex": "@inproceedings{dyken_graphwagu_2022,\nbooktitle = {Eurographics Symposium on Parallel Graphics and Visualization},\neditor = {Bujack, R. and Tierny, J. and Sadlo, F.},\ntitle = {{GraphWaGu:} {GPU} {Powered} {Large} {Scale} {Graph} {Layout} {Computation} and {Rendering} for the {Web}},\nauthor = {Dyken, Landon and Poudel, Pravin and Usher, Will and Petruzza, Steve and Chen, Jake Y. and Kumar, Sidharth},\nyear = {2022},\n}",
 		"abstract": "Large scale graphs are used to encode data from a variety of application domains such as social networks, the web, biological networks, road maps, and finance. Computing enriching layouts and interactive rendering play an important role in many of these applications. However, producing an efficient and interactive visualization of large graphs remains a major challenge, particularly in the web-browser. Existing state of the art web-based visualization systems such as D3.js, Stardust, and NetV.js struggle to achieve interactive layout and visualization for large scale graphs. In this work, we leverage the latest WebGPU technology to develop GraphWaGu, the first WebGPU-based graph visualization system. WebGPU is a new graphics API that brings the full capabilities of modern GPUs to the web browser. Leveraging the computational capabilities of the GPU using this technology enables GraphWaGu to scale to larger graphs than existing technologies. GraphWaGu embodies both fast parallel rendering and layout creation using modified Frutcherman-Reingold and Barnes-Hut algorithms implemented in WebGPU compute shaders. Experimental results demonstrate that our solution achieves the best performance, scalability, and layout quality when compared to current state of the art web-based graph visualization libraries. All of our source code for the project is available at https://github.com/harp-lab/GraphWaGu.",
 		"downloads": [
 			{
@@ -152,27 +188,74 @@
 						"link": "https://github.com/harp-lab/GraphWaGu",
 						"icon": "fab fa-github"
 					},
-                    {
-                        "title": "Live demo!",
-                        "link": "https://harp-lab.github.io/GraphWaGu/",
-                        "icon": "fas fa-flask"
-                    }
+					{
+						"title": "Live demo!",
+						"link": "https://harp-lab.github.io/GraphWaGu/",
+						"icon": "fas fa-flask"
+					}
 				]
 			}
-		]
+		],
+		"presentation_video": "https://www.youtube.com/embed/aEJRqQm-8Ew?start=1748",
+		"bibtex": "@inproceedings{dyken_graphwagu_2022,\n  author = {Dyken, Landon and Poudel, Pravin and Usher, Will and Petruzza, Steve and Chen, Jake and Kumar, Sidharth},\n  title = {{GraphWaGu: GPU Powered Large Scale Graph Layout Computation and Rendering for the Web}},\n  booktitle = {Eurographics Symposium on Parallel Graphics and Visualization},\n  editor = {Bujack, R. and Tierny, J. and Sadlo, F.},\n  pages = {73--83},\n  publisher = {The Eurographics Association},\n  year = {2022},\n  doi = {10.2312/pgv.20221067}\n}"
 	},
-    {
+	{
 		"title": "Accelerating Datalog Applications with cuDF",
+		"short_title": "cudf",
+		"category": "Workshop Papers",
 		"authors": "Ahmedur Rahman Shovon, Landon Dyken, Oded Green, Thomas Gilray, Sidharth Kumar",
-		"venue": "12th Workshop on Irregular Applications: Architectures and Algorithms",
+		"venue": "2022 IEEE/ACM Workshop on Irregular Applications: Architectures and Algorithms (IA3), in conjunction with SC22",
+		"year": 2022,
+		"doi": "10.1109/IA356718.2022.00012",
 		"paper_pdf": "https://par.nsf.gov/servlets/purl/10387678",
 		"thumb": "/img/cudf.png",
-		"year": 2022,
-		"short_title": "cudf",
-		"label": "Datalog on cuDF",
-		"venue_short": "IA³ 2022",
-		"bibtex": "@article{osti_10387678, title = {Accelerating Datalog applications with cuDF.}, url = {https://par.nsf.gov/biblio/10387678}, journal = {12th Workshop on Irregular Applications: Architectures and Algorithms}, author = {Shovon, Ahmedur Rahman and Dyken, Landon Richard and Green, Oded and Gilray, Thomas and Kumar, Sidharth} }",
 		"abstract": "Datalog, a bottom-up declarative logic programming language, has a wide variety of uses for deduction, modeling, and data analysis across application domains. Datalog can be efficiently implemented using relational algebra primitives such as join, projection and union. While there exist several multi-threaded and multi-core implementations of Datalog targeting CPU-based systems, our work makes an inroad towards developing a Datalog implementation for GPUs. We demonstrate the feasibility of a high-performance relational algebra backend for a subset of Datalog applications that can effectively leverage the parallelism of GPUs using cuDF. cuDF is a library from the Rapids suite that uses the NVIDIA CUDA programming model for GPU parallelism. It provides similar functionalities to Pandas, a popular data analysis engine. In this paper, we analyze and evaluate the performance of cuDF versus Pandas for two graph-mining problems implemented in Datalog, (1) triangle counting and (2)  transitive-closure computation.",
-        "downloads": []
+		"bibtex": "@inproceedings{shovon_cudf_2022,\n  author = {Shovon, Ahmedur Rahman and Dyken, Landon and Green, Oded and Gilray, Thomas and Kumar, Sidharth},\n  title = {{Accelerating Datalog Applications with cuDF}},\n  booktitle = {2022 IEEE/ACM Workshop on Irregular Applications: Architectures and Algorithms (IA3)},\n  pages = {41--45},\n  address = {Dallas, TX, USA},\n  year = {2022},\n  doi = {10.1109/IA356718.2022.00012}\n}"
+	},
+	{
+		"title": "Efficient Compression of Structured and Unstructured Volumes via Learned 3D Gaussian Representation",
+		"short_title": "gcasr2026-gaussian-compression",
+		"category": "Extended Abstracts",
+		"authors": "Landon Dyken, Sidharth Kumar",
+		"venue": "GCASR '26: 13th Greater Chicago Area Systems Research Workshop",
+		"year": 2026,
+		"bibtex": "@inproceedings{dyken_gcasr_2026,\n  author = {Dyken, Landon and Kumar, Sidharth},\n  title = {{Efficient Compression of Structured and Unstructured Volumes via Learned 3D Gaussian Representation}},\n  booktitle = {GCASR '26: 13th Greater Chicago Area Systems Research Workshop},\n  address = {Chicago, IL, USA},\n  year = {2026}\n}"
+	},
+	{
+		"title": "Towards a GPU-Accelerated Web-Based Graph Rendering Framework for Large-Scale Protein Networks",
+		"short_title": "sc25-protein-graphs",
+		"category": "Extended Abstracts",
+		"authors": "Jiaxin Lu, Landon Dyken, Shilpika Shilpika, Venkatram Vishwanath, Michael Papka, Sidharth Kumar",
+		"venue": "SC '25: International Conference for High Performance Computing, Networking, Storage and Analysis",
+		"year": 2025,
+		"bibtex": "@inproceedings{lu_protein_2025,\n  author = {Lu, Jiaxin and Dyken, Landon and Shilpika, Shilpika and Vishwanath, Venkatram and Papka, Michael and Kumar, Sidharth},\n  title = {{Towards a GPU-Accelerated Web-Based Graph Rendering Framework for Large-Scale Protein Networks}},\n  booktitle = {SC '25: International Conference for High Performance Computing, Networking, Storage and Analysis},\n  address = {St. Louis, MO, USA},\n  year = {2025}\n}"
+	},
+	{
+		"title": "High-Performance Compression of Scientific Volume Data Using Learned 3D Gaussian Models",
+		"short_title": "clsac2025-gaussian-compression",
+		"category": "Extended Abstracts",
+		"authors": "Landon Dyken, Nathan Debardeleben",
+		"venue": "Chesapeake Large Scale Analytics Conference (CLSAC) 2025",
+		"year": 2025,
+		"bibtex": "@inproceedings{dyken_clsac_2025,\n  author = {Dyken, Landon and Debardeleben, Nathan},\n  title = {{High-Performance Compression of Scientific Volume Data Using Learned 3D Gaussian Models}},\n  booktitle = {Chesapeake Large Scale Analytics Conference (CLSAC) 2025},\n  address = {Annapolis, MD, USA},\n  year = {2025}\n}"
+	},
+	{
+		"title": "High-quality Approximation of Scientific Data using 3D Gaussian Splatting",
+		"short_title": "ldav2024-gaussian-approx",
+		"category": "Extended Abstracts",
+		"authors": "Andres Sewell, Landon Dyken, Victor A. Mateevitsi, Will Usher, Jefferson Amstutz, Thomas Marrinan, Khairi Reda, Silvio Rizzi, Joseph A. Insley, Michael E. Papka, Sidharth Kumar, Steve Petruzza",
+		"venue": "2024 IEEE 14th Symposium on Large Data Analysis and Visualization (LDAV)",
+		"year": 2024,
+		"doi": "10.1109/LDAV64567.2024.00018",
+		"bibtex": "@inproceedings{sewell_gaussian_2024,\n  author = {Sewell, Andres and Dyken, Landon and Mateevitsi, Victor A. and Usher, Will and Amstutz, Jefferson and Marrinan, Thomas and Reda, Khairi and Rizzi, Silvio and Insley, Joseph A. and Papka, Michael E. and Kumar, Sidharth and Petruzza, Steve},\n  title = {{High-quality Approximation of Scientific Data using 3D Gaussian Splatting}},\n  booktitle = {2024 IEEE 14th Symposium on Large Data Analysis and Visualization (LDAV)},\n  address = {St Pete Beach, FL, USA},\n  pages = {73--74},\n  year = {2024},\n  doi = {10.1109/LDAV64567.2024.00018}\n}"
+	},
+	{
+		"title": "Ares–Simulating Type Ia Supernovae on Heterogeneous HPC Architectures",
+		"short_title": "sc23-ares",
+		"category": "Extended Abstracts",
+		"authors": "Landon Dyken, Alexander Holas, Mark Ivan Ugalino, Md Nageeb Bin Zaman",
+		"venue": "SC '23: International Conference for High Performance Computing, Networking, Storage and Analysis",
+		"year": 2023,
+		"bibtex": "@inproceedings{dyken_ares_2023,\n  author = {Dyken, Landon and Holas, Alexander and Ugalino, Mark Ivan and Zaman, Md Nageeb Bin},\n  title = {{Ares–Simulating Type Ia Supernovae on Heterogeneous HPC Architectures}},\n  booktitle = {SC '23: International Conference for High Performance Computing, Networking, Storage and Analysis},\n  address = {Dallas, TX, USA},\n  year = {2023}\n}"
 	}
 ]
