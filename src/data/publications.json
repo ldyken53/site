@@ -20,6 +20,8 @@
 		"authors": "Jiaxin Lu, Landon Dyken, Yihao Sun, Kristopher Micinski, Thomas Gilray, Sidharth Kumar",
 		"venue": "2026 IEEE International Conference on Cluster Computing (Cluster)",
 		"year": 2026,
+		"paper_pdf": "https://sidharthkumar.io/publications/cluster26_jiaxin.pdf",
+		"thumb": "/img/cluster26.jpg",
 		"bibtex": "@inproceedings{lu_terascale_2026,\n  author = {Lu, Jiaxin and Dyken, Landon and Sun, Yihao and Micinski, Kristopher and Gilray, Thomas and Kumar, Sidharth},\n  title = {{Terascale Query Processing in the Browser: Rethinking GPU Acceleration}},\n  booktitle = {2026 IEEE International Conference on Cluster Computing (Cluster)},\n  address = {Alexandria, VA, USA},\n  note = {To appear},\n  year = {2026}\n}"
 	},
 	{
