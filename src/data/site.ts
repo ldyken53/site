@@ -6,7 +6,6 @@ export const SCHOLAR_URL = 'https://scholar.google.com/citations?user=LVW51pcnYF
 
 // Author profile shown in the sidebar.
 export const PROFILE = {
-    bio: 'PhD student in Computer Science working on data visualization and high performance computing.',
     location: 'Chicago, IL',
     employer: 'University of Illinois Chicago',
 };

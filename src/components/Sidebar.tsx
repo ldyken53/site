@@ -13,7 +13,6 @@ const Sidebar: React.FC = () => (
         </div>
         <div className="author-content">
             <h2 className="author-name">{NAME}</h2>
-            <p className="author-bio">{PROFILE.bio}</p>
         </div>
         <ul className="author-links">
             <li><FontAwesomeIcon icon={faLocationDot} fixedWidth />{PROFILE.location}</li>

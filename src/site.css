@@ -171,18 +171,12 @@
 }
 
 .author-name {
-  margin: 18px 0 6px;
+  margin: 18px 0 14px;
   font-size: 24px;
   font-weight: 700;
   font-style: italic;
   letter-spacing: 0.02em;
   color: var(--on-surface);
-}
-
-.author-bio {
-  margin: 0 0 14px;
-  line-height: 1.5;
-  color: var(--on-surface-variant);
 }
 
 .author-links {
@@ -538,10 +532,6 @@
   }
 
   .author-name {
-    margin-top: 0;
-  }
-
-  .author-bio {
     margin: 0;
   }
 
