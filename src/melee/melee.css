@@ -10,8 +10,21 @@
 .background {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+}
+
+.bg-grid,
+.bg-rings {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+}
+
+.bg-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle farthest-corner at 50% 50%, rgba(12, 12, 40, 0) 40%, rgba(12, 12, 40, 0.85) 100%);
 }
 
 .stage {
@@ -155,6 +168,9 @@
 
 .menu-tab.selected {
   transform: translateX(var(--shift)) scale(1.05);
+}
+
+.menu-tab.selected .tab-body {
   filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.55)) drop-shadow(0 0 26px rgba(255, 204, 0, 0.25));
 }
 
@@ -183,8 +199,11 @@
 }
 
 .marker-halo {
-  mix-blend-mode: screen;
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(251, 240, 109, 0.9) 45%, rgba(251, 240, 109, 0));
   animation: marker-pulse 1s ease-in-out infinite alternate;
+  will-change: opacity;
 }
 
 @keyframes marker-pulse {

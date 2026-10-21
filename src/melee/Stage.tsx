@@ -41,10 +41,6 @@ const Stage: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                         <stop offset="0" stopColor="#B8903F" />
                         <stop offset="1" stopColor="#7A5C28" />
                     </linearGradient>
-                    <radialGradient id="melee-halo">
-                        <stop offset="0.45" stopColor="#FBF06D" stopOpacity="0.9" />
-                        <stop offset="1" stopColor="#FBF06D" stopOpacity="0" />
-                    </radialGradient>
                 </defs>
             </svg>
             <div className="stage" style={{ transform: `translate(-50%, -50%) scale(${scale})` }}>

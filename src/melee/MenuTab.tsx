@@ -41,7 +41,9 @@ const MenuTab: React.FC<Props> = ({ label, size, selected, href, external, onSel
             onFocus={onSelect}
             onClick={onConfirm}
         >
-            <svg className="tab-svg" width={w} height={h} viewBox={`0 0 ${w} ${h}`} aria-hidden="true">
+            {/* The bloom filter sits on the slab alone and the pulsing halo is its own
+                layer, so the pulse never forces the blur to be recomputed. */}
+            <svg className="tab-svg tab-body" width={w} height={h} viewBox={`0 0 ${w} ${h}`} aria-hidden="true">
                 {selected ? (
                     <path d={silhouette} fill="var(--primary)" />
                 ) : (
@@ -51,6 +53,14 @@ const MenuTab: React.FC<Props> = ({ label, size, selected, href, external, onSel
                         <path d={interior} fill="var(--surface-container-lowest)" />
                     </>
                 )}
+            </svg>
+            {selected && (
+                <span
+                    className="marker-halo"
+                    style={{ left: w - h + (26 - 48) * u, top: (36 - 48) * u, width: 96 * u, height: 96 * u }}
+                />
+            )}
+            <svg className="tab-svg" width={w} height={h} viewBox={`0 0 ${w} ${h}`} aria-hidden="true">
                 <g transform={`translate(${w - h} 0) scale(${u})`}>
                     {selected ? <TargetMarker /> : <PMarker />}
                 </g>
@@ -75,7 +85,6 @@ const PMarker = () => (
 // The selected tab's "P" redrawn as a glowing target.
 const TargetMarker = () => (
     <g>
-        <circle className="marker-halo" cx={26} cy={36} r={48} fill="url(#melee-halo)" />
         <rect x={12} y={4} width={5} height={92} fill="var(--on-primary-container)" />
         <path d="M 22 10 A 26 26 0 0 1 22 62" fill="none" stroke="#5F7F7A" strokeWidth={4} />
         <circle cx={26} cy={36} r={34} fill="none" stroke="var(--primary-bright)" strokeWidth={5} />
