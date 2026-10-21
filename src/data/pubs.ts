@@ -57,8 +57,9 @@ export interface PubLink {
 
 export const linksOf = (pub: Publication): PubLink[] => {
     const links: PubLink[] = [];
-    if (pub.paper_pdf) links.push({ label: 'Paper', href: pub.paper_pdf });
-    if (pub.doi) links.push({ label: 'Publisher’s Version', href: `https://dx.doi.org/${pub.doi}` });
+    // The PDF when there is one, otherwise the publisher's page.
+    const paper = pub.paper_pdf ?? (pub.doi && `https://doi.org/${pub.doi}`);
+    if (paper) links.push({ label: 'Paper', href: paper });
     pub.downloads?.forEach(group => group.list.forEach(link => links.push({
         label: link.title === 'Github' ? 'Code' : link.title === 'Live demo!' ? 'Live Demo' : link.title,
         href: link.link,
