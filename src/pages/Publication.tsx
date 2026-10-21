@@ -1,110 +1,81 @@
-import React from 'react';
-import { Navigate } from 'react-router-dom';
-import publications from '../data/publications.json';
-import MenuScreen, { MenuItem } from '../melee/MenuScreen';
+import React, { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import { citationOf, linksOf, listed, publications } from '../data/pubs';
+import { usePage } from '../melee/HueContext';
+import ThumbBox from '../melee/ThumbBox';
 
-interface Page {
-    title: string;
-    label: string;
-    authors: string;
-    venue: string;
-    year: number;
-    award?: string;
-    teaser?: string;
-    teaser_caption?: string;
-    abstract: string;
-    paper_pdf: string;
-    doi?: string;
-    downloads: Array<{
-        title: string;
-        list: Array<{
-            link: string;
-            icon?: string;
-            title: string;
-        }>
-    }>;
-    supplemental_video?: string;
-    presentation_video?: string;
-    bibtex: string;
-    thumb?: string;
-}
+const Paper: React.FC<{ id: number }> = ({ id }) => {
+    const pub = publications[id];
+    usePage(pub?.title ?? null, 'red');
+    const [copied, setCopied] = useState(false);
+    if (!pub?.title) return <Navigate to="/publications" replace />;
 
-interface Props {
-    id: number;
-}
-
-type Panel = 'Abstract' | 'Video' | 'BibTeX';
-
-const linkLabel = (title: string) =>
-    title === 'Github' ? 'GitHub' : title === 'Live demo!' ? 'Live Demo' : title;
-
-const linkCaption = (title: string) =>
-    title === 'Github' ? 'Browse the code!' : title === 'Live demo!' ? 'Try it live!' : `Open ${title}.`;
-
-const Paper: React.FC<Props> = ({ id }) => {
-    const page: Page | undefined = publications[id];
-    if (!page) return <Navigate to="/publications" replace />;
-
-    const items: Array<MenuItem & { panel: Panel; video?: string }> = [
-        { label: 'Read Paper', caption: 'Read the paper!', href: page.paper_pdf, panel: 'Abstract' },
-    ];
-    if (page.doi) {
-        items.push({ label: 'Publisher', caption: 'The publisher’s version.', href: `https://dx.doi.org/${page.doi}`, panel: 'Abstract' });
-    }
-    page.downloads.forEach(download => download.list.forEach(link => {
-        items.push({ label: linkLabel(link.title), caption: linkCaption(link.title), href: link.link, panel: 'Abstract' });
-    }));
-    if (page.supplemental_video) {
-        items.push({ label: 'Video', caption: 'Watch the video!', href: page.supplemental_video, panel: 'Video', video: page.supplemental_video });
-    }
-    if (page.presentation_video) {
-        items.push({ label: 'Talk', caption: 'Watch the talk!', href: page.presentation_video, panel: 'Video', video: page.presentation_video });
-    }
-    items.push({
-        label: 'Copy BibTeX',
-        caption: 'Copy the BibTeX!',
-        onConfirm: () => { navigator.clipboard.writeText(page.bibtex); },
-        panel: 'BibTeX',
-    });
-
-    const panel = (i: number) => {
-        const item = items[i];
-        if (item.panel === 'BibTeX') return <code className="info-code">{page.bibtex}</code>;
-        if (item.panel === 'Video') return (
-            <>
-                <h2 className="info-title">{page.title}</h2>
-                <iframe title={item.label} className="info-video" allowFullScreen src={item.video} />
-            </>
-        );
-        return (
-            <>
-                {page.thumb && <img className="info-image" alt="" src={page.thumb} />}
-                <h2 className="info-title">{page.title}</h2>
-                <p className="info-meta">{page.authors}</p>
-                <p className="info-meta">In <i>{page.venue}</i>, {page.year}</p>
-                {page.award && <span className="info-award">{page.award}</span>}
-                {page.teaser && (
-                    <figure style={{ margin: '16px 0 0' }}>
-                        <img alt="teaser" className="info-image" src={page.teaser} />
-                        <figcaption className="info-meta"><b>Fig. 1: </b><i>{page.teaser_caption}</i></figcaption>
-                    </figure>
-                )}
-                <h3 className="info-heading">Abstract</h3>
-                <p className="info-body">{page.abstract}</p>
-            </>
-        );
+    const cite = citationOf(pub);
+    const at = listed.findIndex(entry => entry.id === id);
+    const prev = listed[at - 1];
+    const next = listed[at + 1];
+    const copy = () => {
+        navigator.clipboard.writeText(pub.bibtex!);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1500);
     };
 
     return (
-        <MenuScreen
-            title={['Publications', page.label]}
-            hue="red"
-            parent="/publications"
-            layout="detail"
-            items={items}
-            panel={panel}
-            paneLabel={i => items[i].panel}
-        />
+        <article>
+            <h1 className="page-title">{pub.title}</h1>
+            <p className="archive-meta">
+                Published in <i>{pub.venue}</i>, {pub.year}
+                {pub.award && <span className="award">{pub.award}</span>}
+            </p>
+            <p className="archive-meta">{pub.authors}</p>
+            {pub.thumb && <ThumbBox className="thumb-large" src={pub.thumb} turn={-6} tilt={6} fitImage />}
+            {pub.teaser && (
+                <figure className="teaser">
+                    <img alt="teaser" src={pub.teaser} />
+                    <figcaption><b>Fig. 1: </b><i>{pub.teaser_caption}</i></figcaption>
+                </figure>
+            )}
+            {pub.abstract && (
+                <>
+                    <h2 className="section-title">Abstract</h2>
+                    <p>{pub.abstract}</p>
+                </>
+            )}
+            <p className="archive-links">
+                {linksOf(pub).map((link, i) => (
+                    <React.Fragment key={link.href}>
+                        {i > 0 && <span className="sep"> | </span>}
+                        <a href={link.href}>{link.label}</a>
+                    </React.Fragment>
+                ))}
+            </p>
+            {pub.supplemental_video && (
+                <>
+                    <h2 className="section-title">Supplemental Video</h2>
+                    <iframe title="Supplemental video" className="video" allowFullScreen src={pub.supplemental_video} />
+                </>
+            )}
+            {pub.presentation_video && (
+                <>
+                    <h2 className="section-title">Presentation Video</h2>
+                    <iframe title="Presentation video" className="video" allowFullScreen src={pub.presentation_video} />
+                </>
+            )}
+            <p className="archive-citation">Recommended citation: {cite.lead}<i>{cite.venue}</i>.</p>
+            {pub.bibtex && (
+                <>
+                    <h2 className="section-title">
+                        BibTeX
+                        <button className="copy-button" onClick={copy}>{copied ? 'Copied!' : 'Copy'}</button>
+                    </h2>
+                    <pre className="bibtex"><code>{pub.bibtex}</code></pre>
+                </>
+            )}
+            <nav className="pagination">
+                {prev ? <Link to={`/publications/${prev.id}`}>← Previous</Link> : <span className="disabled">← Previous</span>}
+                {next ? <Link to={`/publications/${next.id}`}>Next →</Link> : <span className="disabled">Next →</span>}
+            </nav>
+        </article>
     );
 };
 

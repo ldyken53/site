@@ -1,21 +1,28 @@
 import React from 'react';
-import publications from '../data/publications.json';
-import MenuScreen, { MenuItem } from '../melee/MenuScreen';
+import PubEntry from '../components/PubEntry';
+import { CATEGORIES, categoryOf, listed } from '../data/pubs';
+import { SCHOLAR_URL } from '../data/site';
+import { usePage } from '../melee/HueContext';
 
-const items: MenuItem[] = publications.map((pub, i) => ({
-    label: pub.label,
-    caption: pub.award ? `${pub.venue_short} · ${pub.award}!` : pub.venue_short,
-    to: `/publications/${i}`,
-    preview: (
+const PublicationList: React.FC = () => {
+    usePage('Publications', 'red');
+    const extra = Array.from(new Set(listed.map(({ pub }) => categoryOf(pub)))).filter(c => !CATEGORIES.includes(c));
+    return (
         <>
-            {pub.thumb && <img className="preview-thumb" alt="" src={pub.thumb} />}
-            <p className="preview-title">{pub.title}</p>
+            <h1 className="page-title">Publications</h1>
+            <p>You can also find my articles on <a href={SCHOLAR_URL}>my Google Scholar profile</a>.</p>
+            {[...CATEGORIES, ...extra].map(category => {
+                const entries = listed.filter(({ pub }) => categoryOf(pub) === category);
+                if (!entries.length) return null;
+                return (
+                    <section key={category}>
+                        <h2 className="section-title">{category}</h2>
+                        {entries.map(({ pub, id }) => <PubEntry key={id} pub={pub} id={id} />)}
+                    </section>
+                );
+            })}
         </>
-    ),
-}));
-
-const PublicationList: React.FC = () => (
-    <MenuScreen title={['Publications']} hue="red" parent="/" layout="sub" items={items} />
-);
+    );
+};
 
 export default PublicationList;

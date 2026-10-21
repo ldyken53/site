@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { HUES, Hue, STAGE_H, STAGE_W, reducedMotion } from './hues';
 
 // The navy void: a perspective wire grid and slowly turning orbit rings
-// (design.md, background-grid). Drawn in stage pixels so it lines up with the
-// letterboxed stage, but it fills the whole viewport.
+// (design.md, background-grid). Drawn on a 4:3 stage scaled to cover the
+// viewport, fixed behind the scrolling page.
 //
 // Only the rings move (they carry the camera drift), so the grid is painted
 // once per resize and the rings, which are soft glows anyway, are drawn at half
@@ -25,11 +25,11 @@ const RINGS = [
 
 const hex = (h: string) => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
 
-// Stage scale and letterbox offset for the current viewport.
+// Scale and offset of a 4:3 stage that covers the viewport.
 const fitStage = () => {
     const W = window.innerWidth;
     const H = window.innerHeight;
-    const s = Math.min(W / STAGE_W, H / STAGE_H);
+    const s = Math.max(W / STAGE_W, H / STAGE_H);
     return { W, H, s, ox: (W - STAGE_W * s) / 2, oy: (H - STAGE_H * s) / 2 };
 };
 

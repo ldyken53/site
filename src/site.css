@@ -1,0 +1,565 @@
+/* AcademicPages layout (masthead, author sidebar, content, footer) in the
+   Melee palette from design.md. --line and --bright follow the page hue. */
+
+.site {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  --line: var(--secondary);
+  --bright: var(--secondary-bright);
+}
+
+.site.hue-blue { --line: #4A56A8; --bright: #6799D3; }
+.site.hue-red { --line: #C45244; --bright: #E07B6B; }
+.site.hue-green { --line: #1E9832; --bright: #6FD07A; }
+
+.site > :not(.background) {
+  position: relative;
+  z-index: 1;
+}
+
+.site a {
+  color: var(--primary-dim);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 120ms ease;
+}
+
+.site a:hover {
+  color: var(--primary);
+}
+
+/* ---- Background ------------------------------------------------------------ */
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-grid,
+.bg-rings {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle farthest-corner at 50% 50%, rgba(12, 12, 40, 0) 40%, rgba(12, 12, 40, 0.85) 100%);
+}
+
+/* ---- Masthead: the console-frame line runs along its bottom ------------------ */
+
+.site .masthead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(4, 5, 14, 0.9);
+  border-bottom: 3px solid var(--line);
+  transition: border-color 400ms ease;
+}
+
+/* Wide 20% glow pass behind the line, and a thin bright highlight above it. */
+.masthead::after,
+.masthead::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  transition: background-color 400ms ease;
+}
+
+.masthead::after {
+  bottom: -9px;
+  height: 14px;
+  background: var(--line);
+  opacity: 0.2;
+}
+
+.masthead::before {
+  bottom: 1px;
+  height: 1.5px;
+  background: var(--bright);
+  opacity: 0.6;
+}
+
+.masthead-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 32px;
+  max-width: 1280px;
+  min-height: 64px;
+  margin: 0 auto;
+  padding: 8px 24px;
+  box-sizing: border-box;
+}
+
+.site .site-title {
+  font-size: 26px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: var(--on-surface);
+  text-decoration: none;
+  text-shadow: var(--hard-shadow);
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site .nav-links a {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  text-shadow: var(--hard-shadow);
+  padding-bottom: 4px;
+  border-bottom: 3px solid transparent;
+}
+
+.site .nav-links a.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+/* ---- Page body --------------------------------------------------------------- */
+
+.page-wrap {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 40px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 40px auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+/* ---- Author sidebar ----------------------------------------------------------- */
+
+.sidebar {
+  position: sticky;
+  top: 107px;
+  align-self: start;
+  font-size: 15px;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.author-avatar img {
+  display: block;
+  width: 175px;
+  height: 175px;
+  object-fit: cover;
+  object-position: center 25%;
+  border-radius: 50%;
+  border: 3px solid var(--primary-bright);
+  box-shadow: 0 0 0 4px var(--surface-container-lowest), 0 0 26px rgba(251, 240, 109, 0.35);
+}
+
+.author-name {
+  margin: 18px 0 6px;
+  font-size: 24px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: var(--on-surface);
+}
+
+.author-bio {
+  margin: 0 0 14px;
+  line-height: 1.5;
+  color: var(--on-surface-variant);
+}
+
+.author-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--on-surface-variant);
+}
+
+.author-links li {
+  margin: 0 0 8px;
+}
+
+.author-links svg {
+  margin-right: 10px;
+  color: var(--bright);
+  transition: color 400ms ease;
+}
+
+.site .author-links a {
+  color: var(--on-surface);
+  text-decoration: none;
+}
+
+.site .author-links a:hover {
+  color: var(--primary);
+}
+
+/* ---- Main content ------------------------------------------------------------- */
+
+.page-content {
+  min-width: 0;
+  padding: 32px 40px 40px;
+  background: rgba(4, 5, 14, 0.82);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  font-size: 17px;
+  line-height: 1.65;
+  transition: border-color 400ms ease;
+}
+
+.page-content > :first-child {
+  margin-top: 0;
+}
+
+.page-content p {
+  margin: 0 0 1em;
+}
+
+.page-title {
+  margin: 0 0 16px;
+  font-size: 34px;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--on-surface);
+  text-shadow: var(--hard-shadow);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  margin: 36px 0 8px;
+  padding-bottom: 6px;
+  font-size: 22px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: var(--on-surface);
+  border-bottom: 2px solid var(--line);
+  transition: border-color 400ms ease;
+}
+
+/* ---- Publication entries ------------------------------------------------------ */
+
+.archive-item {
+  display: flex;
+  gap: 28px;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(161, 164, 182, 0.15);
+}
+
+.archive-thumb {
+  flex: 0 0 210px;
+  padding-top: 4px;
+}
+
+.archive-body {
+  min-width: 0;
+}
+
+.archive-title {
+  margin: 0 0 6px;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.site .archive-title a {
+  color: var(--on-surface);
+  text-decoration: none;
+}
+
+.site .archive-title a:hover {
+  color: var(--primary);
+}
+
+.page-content .archive-meta {
+  margin: 0 0 8px;
+  font-size: 15px;
+  color: var(--on-surface-variant);
+}
+
+.award {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 1px 10px;
+  border: 2px solid var(--primary-dim);
+  color: var(--primary-dim);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  vertical-align: 2px;
+}
+
+.page-content .archive-excerpt {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.page-content .archive-citation {
+  margin: 0 0 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--on-surface-variant);
+}
+
+.page-content .archive-links {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.sep {
+  color: var(--on-surface-dim);
+}
+
+/* ---- Wireframe thumbnail box (pointer-driven tilt) ------------------------------ */
+
+.thumb-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  perspective: 700px;
+}
+
+.thumb-3d {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 350ms cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+.thumb-face {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid var(--line);
+  transition: border-color 400ms ease;
+  pointer-events: none;
+}
+
+.thumb-back {
+  transform: translateZ(-40px);
+  opacity: 0.55;
+}
+
+.thumb-edge {
+  position: absolute;
+  width: 40px;
+  height: 1.5px;
+  background: var(--line);
+  opacity: 0.75;
+  transform-origin: 0 50%;
+  transform: rotateY(90deg);
+  transition: background-color 400ms ease;
+}
+
+.thumb-pane {
+  position: absolute;
+  inset: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  box-sizing: border-box;
+  object-fit: cover;
+  background: var(--tertiary-container);
+  border: 1.5px solid var(--bright);
+  transform: translateZ(-20px);
+  transition: border-color 400ms ease;
+}
+
+.thumb-large {
+  max-width: 680px;
+  aspect-ratio: 16 / 7;
+  margin: 28px auto 8px;
+}
+
+/* ---- Publication page ------------------------------------------------------------ */
+
+.teaser {
+  margin: 24px 0 0;
+}
+
+.teaser img {
+  width: 100%;
+  border: 1.5px solid var(--bright);
+}
+
+.teaser figcaption {
+  margin-top: 8px;
+  font-size: 15px;
+  color: var(--on-surface-variant);
+}
+
+.video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1.5px solid var(--bright);
+  background: #000;
+}
+
+.bibtex {
+  margin: 12px 0 0;
+  padding: 16px;
+  overflow-x: auto;
+  background: var(--surface-container-lowest);
+  border: 1px solid rgba(161, 164, 182, 0.3);
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--on-surface);
+}
+
+.copy-button,
+.site .pagination a,
+.pagination .disabled {
+  font: 700 14px/1 var(--font);
+  letter-spacing: 0.04em;
+  color: var(--on-surface-variant);
+  background: var(--surface-container-lowest);
+  border: 2px solid var(--outline);
+  border-radius: 12px;
+  text-decoration: none;
+}
+
+.copy-button {
+  margin-left: auto;
+  padding: 6px 14px;
+  font-style: normal;
+  cursor: pointer;
+}
+
+.copy-button:hover,
+.site .pagination a:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.site .pagination a,
+.pagination .disabled {
+  padding: 10px 18px;
+}
+
+.pagination .disabled {
+  opacity: 0.35;
+}
+
+/* ---- Footer ------------------------------------------------------------------------ */
+
+.page-footer {
+  padding: 24px;
+  background: rgba(4, 5, 14, 0.9);
+  border-top: 3px solid var(--line);
+  font-size: 14px;
+  color: var(--on-surface-dim);
+  text-align: center;
+  transition: border-color 400ms ease;
+}
+
+.footer-follow {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 8px;
+  color: var(--on-surface-variant);
+}
+
+/* ---- Small screens: the sidebar stacks above the content ---------------------------- */
+
+@media (max-width: 900px) {
+  .page-wrap {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    margin: 24px auto;
+    padding: 0 16px;
+  }
+
+  .sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 0 18px;
+    align-items: center;
+  }
+
+  .author-avatar img {
+    width: 96px;
+    height: 96px;
+  }
+
+  .author-name {
+    margin-top: 0;
+  }
+
+  .author-bio {
+    margin: 0;
+  }
+
+  .author-links {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    margin-top: 16px;
+  }
+
+  .author-links li {
+    margin: 0;
+  }
+
+  .page-content {
+    padding: 22px 20px 28px;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+
+  .archive-item {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .archive-thumb {
+    flex: none;
+    width: min(100%, 320px);
+  }
+
+  .masthead-inner {
+    padding: 10px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thumb-3d,
+  .masthead,
+  .section-title,
+  .page-content {
+    transition: none;
+  }
+}

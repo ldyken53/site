@@ -1,12 +1,13 @@
 import React from 'react';
 import { Navigate, Route, Routes, useParams } from 'react-router-dom';
-import './melee/melee.css';
-import { ScreenProvider } from './melee/ScreenContext';
-import Stage from './melee/Stage';
-import Contact from './pages/Contact';
+import './site.css';
+import Footer from './components/Footer';
+import Masthead from './components/Masthead';
+import Sidebar from './components/Sidebar';
+import Background from './melee/Background';
+import { HueProvider, useHue } from './melee/HueContext';
 import Fun from './pages/Fun';
-import MainMenu from './pages/MainMenu';
-import Profile from './pages/Profile';
+import Home from './pages/Home';
 import Paper from './pages/Publication';
 import PublicationList from './pages/PublicationList';
 
@@ -15,21 +16,34 @@ function Publication() {
     return <Paper key={id} id={parseFloat(id!)} />;
 }
 
+function Page() {
+    const { hue } = useHue();
+    return (
+        <div className={`site hue-${hue}`}>
+            <Background hue={hue} />
+            <Masthead />
+            <div className="page-wrap">
+                <Sidebar />
+                <main className="page-content">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/publications" element={<PublicationList />} />
+                        <Route path="/publications/:pubId" element={<Publication />} />
+                        <Route path="/camille" element={<Fun />} />
+                        <Route path="*" element={<Navigate to="/" replace />} />
+                    </Routes>
+                </main>
+            </div>
+            <Footer />
+        </div>
+    );
+}
+
 function App() {
     return (
-        <ScreenProvider>
-            <Stage>
-                <Routes>
-                    <Route path="/" element={<MainMenu />} />
-                    <Route path="/profile" element={<Profile />} />
-                    <Route path="/publications" element={<PublicationList />} />
-                    <Route path="/publications/:pubId" element={<Publication />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/camille" element={<Fun />} />
-                    <Route path="*" element={<Navigate to="/" replace />} />
-                </Routes>
-            </Stage>
-        </ScreenProvider>
+        <HueProvider>
+            <Page />
+        </HueProvider>
     );
 }
 

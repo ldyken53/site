@@ -1,16 +1,9 @@
 import React from 'react';
-import MenuScreen from '../melee/MenuScreen';
+import { usePage } from '../melee/HueContext';
 
-const Fun: React.FC = () => (
-    <MenuScreen
-        title={['Camille']}
-        hue="blue"
-        parent="/"
-        layout="detail"
-        items={[{ label: 'Main Menu', caption: 'Back to the menu.', to: '/' }]}
-        paneLabel={() => 'Video'}
-        panel={() => <video className="info-video" controls src="Meteor.mp4" />}
-    />
-);
+const Fun: React.FC = () => {
+    usePage('Camille', 'blue');
+    return <video className="video" controls src="Meteor.mp4" />;
+};
 
 export default Fun;
