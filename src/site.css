@@ -446,6 +446,13 @@
   color: var(--on-surface);
 }
 
+.site .see-all {
+  margin-left: auto;
+  font-size: 15px;
+  font-style: normal;
+  letter-spacing: 0.02em;
+}
+
 .copy-button,
 .site .pagination a,
 .pagination .disabled {

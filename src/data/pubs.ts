@@ -1,4 +1,5 @@
 import raw from './publications.json';
+import { NAME } from './site';
 
 export interface Publication {
     title: string;
@@ -37,6 +38,9 @@ export const findPub = (param: string) => {
     const slug = /^\d+$/.test(param) ? LEGACY_IDS[Number(param)] : param;
     return listed.find(pub => pub.short_title === slug);
 };
+
+// Shown on the home page: first-author papers and award winners.
+export const selected = listed.filter(pub => pub.authors.startsWith(NAME) || pub.award);
 
 export const CATEGORIES = ['Journal Articles', 'Book Chapters', 'Conference Papers', 'Workshop Papers'];
 
