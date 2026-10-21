@@ -56,6 +56,7 @@
 		"authors": "Landon Dyken, Jiaxin Lu, Steve Petruzza, Will Usher, Sidharth Kumar",
 		"venue": "Topics in Parallel and Distributed Computing: From Concepts to the Classroom, Vol. 3 (Springer)",
 		"year": 2025,
+		"thumb": "/img/webgpu-chapter.jpg",
 		"bibtex": "@incollection{dyken_webgpu_2025,\n  author = {Dyken, Landon and Lu, Jiaxin and Petruzza, Steve and Usher, Will and Kumar, Sidharth},\n  title = {{Understanding GPU Acceleration Using WebGPU}},\n  booktitle = {Topics in Parallel and Distributed Computing: From Concepts to the Classroom},\n  volume = {3},\n  publisher = {Springer},\n  note = {In press},\n  year = {2025}\n}"
 	},
 	{
