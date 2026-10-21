@@ -242,6 +242,15 @@ The only interactive element. Use `menu-tab` for the resting state: `surface-con
 
 `preview-pane` is the translucent teal glass panel listing the sub-items of the selected tab in `label-preview`, left-aligned, with the rotated `preview-pane-label` ("NEXT SCREEN") in its left gutter. When a selection changes, the list cross-fades (~150 ms); for screens with no list, the pane shows a dimmed thumbnail of the next screen instead (the game shows a ghosted character-select grid, for example).
 
+### Image box
+
+The preview box reused as a frame for images, such as publication thumbnails. It follows the preview box above, with these changes:
+
+- **Tilts toward the pointer.** At rest it keeps the −16° turn; while the pointer is over it, the box turns to follow it (up to about ±14°) and eases back on leave. The game's box is static apart from screen transitions.
+- **Shallower depth.** The back face sits about 40px behind the front instead of ~90px, so small images don't look stretched.
+- **No parallelogram skew.** The pane stays rectangular so the image inside isn't distorted.
+- **Large variant fits the image.** On a detail page the box turns only −6° (±6° of tilt) and takes the image's own aspect ratio, so nothing is cropped.
+
 ### Caption pill
 
 `caption-pill` carries the one-line description of the selected item in `body-caption`, centred, inside a 2px `outline` border on an ink fill, straddling the frame's bottom edge. It updates instantly with the selection.
