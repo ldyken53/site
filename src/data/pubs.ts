@@ -53,9 +53,3 @@ export const linksOf = (pub: Publication): PubLink[] => {
     })));
     return links;
 };
-
-// First sentence of the abstract, as the list excerpt.
-export const excerptOf = (pub: Publication) => {
-    const match = pub.abstract?.match(/^.*?[.!?](\s|$)/);
-    return match ? match[0].trim() : pub.abstract;
-};

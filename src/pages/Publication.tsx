@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
+import Authors from '../components/Authors';
 import PubLinks from '../components/PubLinks';
 import { listed, publications } from '../data/pubs';
 import { usePage } from '../melee/HueContext';
@@ -23,11 +24,11 @@ const Paper: React.FC<{ id: number }> = ({ id }) => {
     return (
         <article>
             <h1 className="page-title">{pub.title}</h1>
+            <Authors authors={pub.authors} />
             <p className="archive-meta">
                 Published in <i>{pub.venue}</i>, {pub.year}
                 {pub.award && <span className="award">{pub.award}</span>}
             </p>
-            <p className="archive-meta">{pub.authors}</p>
             {pub.thumb && <ThumbBox className="thumb-large" src={pub.thumb} turn={-6} tilt={6} fitImage />}
             {pub.teaser && (
                 <figure className="teaser">

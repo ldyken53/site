@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Publication, excerptOf } from '../data/pubs';
+import { Publication } from '../data/pubs';
 import ThumbBox from '../melee/ThumbBox';
+import Authors from './Authors';
 import PubLinks from './PubLinks';
 
-// One AcademicPages archive item: title, venue line, excerpt, links.
+// One AcademicPages archive item: title, authors, venue line, links.
 const PubEntry: React.FC<{ pub: Publication; id: number }> = ({ pub, id }) => {
     return (
         <article className="archive-item">
@@ -17,11 +18,11 @@ const PubEntry: React.FC<{ pub: Publication; id: number }> = ({ pub, id }) => {
                 <h3 className="archive-title">
                     <Link to={`/publications/${id}`}>{pub.title}</Link>
                 </h3>
+                <Authors authors={pub.authors} />
                 <p className="archive-meta">
                     Published in <i>{pub.venue}</i>, {pub.year}
                     {pub.award && <span className="award">{pub.award}</span>}
                 </p>
-                {pub.abstract && <p className="archive-excerpt">{excerptOf(pub)}</p>}
                 <PubLinks pub={pub} />
             </div>
         </article>

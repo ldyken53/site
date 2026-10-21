@@ -310,9 +310,16 @@
   vertical-align: 2px;
 }
 
-.page-content .archive-excerpt {
-  margin: 0 0 8px;
+.page-content .archive-authors {
+  margin: 0 0 4px;
   font-size: 16px;
+  line-height: 1.5;
+  color: var(--on-surface-variant);
+}
+
+.archive-authors .me {
+  font-weight: 700;
+  color: var(--on-surface);
 }
 
 .link-button {
