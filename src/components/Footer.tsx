@@ -10,7 +10,7 @@ const Footer: React.FC = () => (
             <a href={CONTACTS.linkedin}>LinkedIn</a>
         </div>
         <div className="footer-copyright">
-            © {new Date().getFullYear()} {NAME}. Layout after <a href="https://academicpages.github.io/">AcademicPages</a>.
+            © {new Date().getFullYear()} {NAME}
         </div>
     </footer>
 );

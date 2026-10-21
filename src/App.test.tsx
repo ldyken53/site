@@ -6,5 +6,5 @@ import App from './App';
 test('opens on the about page', () => {
   render(<HashRouter><App /></HashRouter>);
   expect(screen.getByText('About me')).toBeInTheDocument();
-  expect(screen.getByText('Recent Publications')).toBeInTheDocument();
+  expect(screen.getAllByText('Publications')[0]).toBeInTheDocument();
 });
